@@ -43,7 +43,7 @@ export class CountdownApp extends HTMLElement {
             }
 
             if (event.target.matches('[value="fullscreen"]')) {
-                document.documentElement.requestFullscreen();
+                document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
             } 
 
             if (event.target.matches('[value="letters"]')) {

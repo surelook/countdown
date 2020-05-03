@@ -3,6 +3,11 @@
   src: url(../fonts/Roboto-Regular.ttf)
 }
 
+$fa-font-path: '~@fortawesome/fontawesome-free/webfonts'; 
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+
 @import 'variables';
 @import '../conundrum-board/conundrum-board';
 @import '../letter-board/letter-board';
@@ -40,20 +45,50 @@ video {
   left: 0;
   text-align: left;
   margin: 0.5em 0 0 0.5em;
+
+  button {
+    background-color: transparent;
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+    border-radius: 0.5em;
+    cursor: pointer;
+    outline: none;
+    margin: 0 0.5em 0.5em 0;
+  
+    &:hover {
+      background-color: white;
+      color: black;
+    }
+  }
 }
 
-button {
-  background-color: transparent;
-  border: 1px solid white;
-  background-color: black;
-  color: white;
-  border-radius: 0.5em;
+.fullscreen-button {
   cursor: pointer;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
   outline: none;
-  margin: 0 0.5em 0.5em 0;
+  color: rgba(255, 255, 255, 1);
+  font-size: 1.8rem;
 
-  &:hover {
-    background-color: white;
-    color: black;
+  i {
+    pointer-events: none;
+  }
+
+  .fa-compress {
+    display: none;
+
+    :fullscreen & {
+      display: inline-block;
+    }
+  }
+
+  .fa-expand {
+    :fullscreen & {
+      display: none;
+    }
   }
 }
