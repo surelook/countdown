@@ -46,6 +46,7 @@ module.exports = {
         to: 'assets',
         ignore: ['*.DS_Store'],
       },
+      '.nojekyll'
     ]),
 
     /**
