@@ -1,0 +1,19 @@
+countdown-app {
+    &[state="letters"] {
+        letter-board {
+            display: block;
+        }
+    }
+
+    &[state="numbers"] {
+        number-board {
+            display: block;
+        }
+    }
+
+    &[state="conundrum"] {
+        conundrum-board {
+            display: block;
+        }
+    }
+}

@@ -1,0 +1,63 @@
+number-board {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    display: none;
+
+    .controls {
+        position: relative;
+    }
+
+    .board {
+        padding: 1vw;
+        background-color: #0666ae;
+    }
+
+    .target {
+        border: 1vw solid #2776a9;
+        margin: 0 auto;
+        caret-color: transparent;
+        box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
+        height: 10vw;
+        font-weight: 900;
+        width: 3.2ch;
+        background-color: #1b4a90;
+        color: white;
+        font-size: 10vw;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+        outline: none;
+        cursor: default;
+        text-align: right;
+        padding: 0 3vw;
+    }
+
+    .number-selection {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 10vw));
+        grid-gap: 1vw;
+        margin-top: 1vw;
+        justify-content: center;
+
+        input {
+            border: none;
+            caret-color: transparent;
+            box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
+            height: 10vw;
+            background-color: #458ac8;
+            color: white;
+            font-size: 5.5vw;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            outline: none;
+            cursor: default;
+        }
+        
+        input:valid {
+            background-color: #1b4a90;
+        }
+    }
+}

@@ -1,0 +1,59 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url(../fonts/Roboto-Regular.ttf)
+}
+
+@import 'variables';
+@import '../conundrum-board/conundrum-board';
+@import '../letter-board/letter-board';
+@import '../number-board/number-board';
+@import '../countdown-app/countdown-app';
+
+html {
+  font-size: $root-font-size;
+  font-family: $font-family;
+  max-width: $page-width;
+  margin: 0 auto;
+  text-align: center;
+}
+
+p {
+  font-size: $paragraph-font-size;
+}
+
+body {
+  margin: 0;
+}
+
+video {
+  display: block;
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: top;
+}
+
+.controls {
+  position: fixed;
+  left: 0;
+  text-align: left;
+  margin: 0.5em 0 0 0.5em;
+}
+
+button {
+  background-color: transparent;
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+  border-radius: 0.5em;
+  cursor: pointer;
+  outline: none;
+  margin: 0 0.5em 0.5em 0;
+
+  &:hover {
+    background-color: white;
+    color: black;
+  }
+}

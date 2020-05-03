@@ -1,0 +1,38 @@
+letter-board {
+    position: fixed;
+    display: none;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+
+    .controls {
+        position: relative;
+    }
+
+    .letter-selection {
+        display: grid;
+        grid-template-columns: repeat(9, minmax(0, 1fr));
+        grid-gap: 1vw;
+        background: #4784b6;
+        padding: 1vw;
+    }
+    
+    input {
+        border: none;
+        caret-color: transparent;
+        box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
+        height: 10vw;
+        background-color: #458ac8;
+        color: white;
+        font-size: 10vw;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+        outline: none;
+        cursor: default;
+    }
+    
+    input:valid {
+        background-color: #1b4a90;
+    }
+}
