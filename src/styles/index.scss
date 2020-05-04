@@ -46,8 +46,8 @@ video {
 }
 
 .controls {
-  position: fixed;
-  left: 0;
+  display: flex;
+  flex-wrap: wrap;
   text-align: left;
   margin: 0.5em 0 0 0.5em;
 
@@ -61,37 +61,79 @@ video {
     cursor: pointer;
     outline: none;
     margin: 0 0.5em 0.5em 0;
+
+    i {
+      pointer-events: none;
+    }
+
+    &.fullscreen-button {
+      margin-left: auto;
+    
+      .fa-compress {
+        display: none;
+    
+        :fullscreen & {
+          display: inline-block;
+        }
+      }
+    
+      .fa-expand {
+        :fullscreen & {
+          display: none;
+        }
+      }
+    }
   }
 }
 
-.fullscreen-button {
+.board-selection {
+  display: flex;
+  top: -2em;
+  right: 0;
+  margin-left: auto;
+  
+  button {
+    background-color: #1b4a90;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: white;
+    box-shadow: inset 0 -10px 10px -10px rgba(0, 0, 0, 0.5);
+    align-self: flex-end;
+    padding: 0.5em 1em;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-family: inherit;
+
+    [board="letters"] &[value="letters"] {
+      background-color: #4784b6;
+      box-shadow: none;
+    }
+
+    [board="numbers"] &[value="numbers"] {
+      background-color: #0666ae;
+      box-shadow: none;
+    }
+
+    [board="conundrum"] &[value="conundrum"] {
+      background-color: #4784b6;
+      box-shadow: none;
+    }
+  }
+}
+
+.game-controls {
+  display: flex;
   position: fixed;
-  top: 1rem;
-  right: 1rem;
-  padding: 0.5em 1em 0.7em;
-  background-color: white;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
-  border: none;
-  color: hsla(0, 0%, 25%, 1);
-  border-radius: 1.2em;
-  cursor: pointer;
-  outline: none;
+  left: 0;
+  right: 0;
 
-  i {
-    pointer-events: none;
+  .controls {
+    flex-grow: 1;
+    align-self: flex-end;
   }
+}
 
-  .fa-compress {
-    display: none;
-
-    :fullscreen & {
-      display: inline-block;
-    }
-  }
-
-  .fa-expand {
-    :fullscreen & {
-      display: none;
-    }
-  }
+.board-controls {
+  display: flex;
 }
