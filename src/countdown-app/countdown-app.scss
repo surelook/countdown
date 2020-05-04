@@ -16,4 +16,20 @@ countdown-app {
             display: block;
         }
     }
+
+    button[value="pause"],
+    button[value="reset"] {
+        display: none;
+    }
+
+    &[counting] {
+        button[value="play"] {
+            display: none;
+        }
+
+        button[value="pause"],
+        button[value="reset"] {
+            display: initial;
+        }
+    }
 }
