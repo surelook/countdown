@@ -26,7 +26,7 @@ export class CountdownApp extends HTMLElement {
 
         this.addEventListener('click', (event) => {
             if (event.target.matches('[value="new"]')) {
-                if (confirm('Staring a new game will clear progress and shuffle all letters. Would you like to start a new game? ')) {
+                if (confirm('Starting a new game will clear progress and shuffle all letters. Would you like to start a new game?')) {
                     this.createNewGame();
                 }
             }
