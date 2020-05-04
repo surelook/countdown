@@ -32,18 +32,18 @@ export class CountdownApp extends HTMLElement {
             }
 
             if (event.target.matches('[value="reset"]')) {
-                this.counting = false;
+                this.countingState = '';
                 this.video.pause();
                 this.video.currentTime = 0;
             }
 
             if (event.target.matches('[value="play"]')) {
-                this.counting = true;
+                this.countingState = 'counting';
                 this.video.play();
             }
 
             if (event.target.matches('[value="pause"]')) {
-                this.counting = false;
+                this.countingState = 'paused';
                 this.video.pause();
             }
 
@@ -73,16 +73,12 @@ export class CountdownApp extends HTMLElement {
         Storage.setItem('game', data);
     }
 
-    get counting () {
-        this.hasAttribute('counting');
+    get countingState () {
+        this.getAttribute('counting-state');
     }
 
-    set counting (bool) {
-        if (bool) {
-            this.setAttribute('counting', '');
-        } else {
-            this.removeAttribute('counting');
-        }
+    set countingState (value) {
+        this.setAttribute('counting-state', value);
     }
 
     get video () {

@@ -54,6 +54,7 @@ export class ConundrumBoard extends HTMLElement {
     }
 
     reset () {
+        this.state = '';
         const game = this.app.game;
         game.boardConundrum = null;
         this.app.game = game;
