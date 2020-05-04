@@ -15,17 +15,16 @@ number-board {
     }
 
     .target {
+        font-family: inherit;
         border: 1vw solid #2776a9;
         margin: 0 auto;
         caret-color: transparent;
         box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
         height: 10vw;
-        font-weight: 900;
         width: 3.2ch;
         background-color: #1b4a90;
         color: white;
         font-size: 10vw;
-        font-weight: bold;
         text-transform: uppercase;
         text-align: center;
         outline: none;
@@ -42,6 +41,7 @@ number-board {
         justify-content: center;
 
         input {
+            font-family: inherit;
             border: none;
             caret-color: transparent;
             box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -49,7 +49,6 @@ number-board {
             background-color: #458ac8;
             color: white;
             font-size: 5.5vw;
-            font-weight: bold;
             text-transform: uppercase;
             text-align: center;
             outline: none;

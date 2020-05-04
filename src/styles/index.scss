@@ -1,6 +1,11 @@
 @font-face {
   font-family: 'Roboto';
-  src: url(../fonts/Roboto-Regular.ttf)
+  src: url(../fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Futura Bold';
+  src: url('../fonts/Futura URW Extra Bold.ttf');
 }
 
 $fa-font-path: '~@fortawesome/fontawesome-free/webfonts'; 
@@ -47,32 +52,30 @@ video {
   margin: 0.5em 0 0 0.5em;
 
   button {
-    background-color: transparent;
-    border: 1px solid white;
-    background-color: black;
-    color: white;
-    border-radius: 0.5em;
+    padding: 0.5em 1em 0.7em;
+    background-color: white;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+    border: none;
+    color: hsla(0, 0%, 25%, 1);
+    border-radius: 1.2em;
     cursor: pointer;
     outline: none;
     margin: 0 0.5em 0.5em 0;
-  
-    &:hover {
-      background-color: white;
-      color: black;
-    }
   }
 }
 
 .fullscreen-button {
-  cursor: pointer;
   position: fixed;
   top: 1rem;
   right: 1rem;
-  background: none;
+  padding: 0.5em 1em 0.7em;
+  background-color: white;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
   border: none;
+  color: hsla(0, 0%, 25%, 1);
+  border-radius: 1.2em;
+  cursor: pointer;
   outline: none;
-  color: rgba(255, 255, 255, 1);
-  font-size: 1.8rem;
 
   i {
     pointer-events: none;

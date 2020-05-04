@@ -29,6 +29,7 @@ conundrum-board {
     }
     
     input {
+        font-family: inherit;
         border: none;
         caret-color: transparent;
         box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -36,7 +37,6 @@ conundrum-board {
         background-color: #458ac8;
         color: white;
         font-size: 10vw;
-        font-weight: bold;
         text-transform: uppercase;
         text-align: center;
         outline: none;
