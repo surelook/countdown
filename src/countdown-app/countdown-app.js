@@ -14,7 +14,7 @@ export const EVENTS = {
 
 export class CountdownApp extends HTMLElement {
     static get observedAttributes () {
-        return ['state'];
+        return ['board'];
     }
 
     connectedCallback() {
@@ -26,7 +26,9 @@ export class CountdownApp extends HTMLElement {
 
         this.addEventListener('click', (event) => {
             if (event.target.matches('[value="new"]')) {
-                this.createNewGame();
+                if (confirm('Staring a new game will clear progress and shuffle all letters. Would you like to start a new game? ')) {
+                    this.createNewGame();
+                }
             }
 
             if (event.target.matches('[value="reset"]')) {
@@ -47,15 +49,15 @@ export class CountdownApp extends HTMLElement {
             } 
 
             if (event.target.matches('[value="letters"]')) {
-                this.state = 'letters';
+                this.board = 'letters';
             } 
 
             if (event.target.matches('[value="numbers"]')) {
-                this.state = 'numbers';
+                this.board = 'numbers';
             } 
 
             if (event.target.matches('[value="conundrum"]')) {
-                this.state = 'conundrum';
+                this.board = 'conundrum';
             } 
         })
     }
@@ -72,24 +74,24 @@ export class CountdownApp extends HTMLElement {
         return this.querySelector('video');
     }
 
-    get state () {
-        return this.getAttribute('state')
+    get board () {
+        return this.getAttribute('board')
     }
 
-    set state (value) {
-        return this.setAttribute('state', value)
+    set board (value) {
+        return this.setAttribute('board', value)
     }
 
     attributeChangedCallback (name) {
-        if (name === 'state') {
+        if (name === 'board') {
             const game = this.game;
-            game.state = this.state;
+            game.board = this.board;
             this.game = game;
         }
     }
 
     loadGame () {
-        this.state = this.game.state;
+        this.board = this.game.board;
     }
 
     createNewGame () {
@@ -98,7 +100,7 @@ export class CountdownApp extends HTMLElement {
             conundrums: shuffleArray(CONUNDRUMS),
             vowels: shuffleArray(VOWELS),
             boardLetters: [],
-            state: 'letters',
+            board: 'letters',
             largeNumbers: shuffleArray(LARGE),
             smallNumbers: shuffleArray(SMALL),
             boardNumbers: [],
@@ -108,6 +110,6 @@ export class CountdownApp extends HTMLElement {
 
         this.dispatchEvent(new Event(EVENTS.NEW_GAME_CREATED));
 
-        this.state = this.game.state;
+        this.board = this.game.board;
     }
 }

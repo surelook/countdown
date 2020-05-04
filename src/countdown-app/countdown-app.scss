@@ -1,17 +1,17 @@
 countdown-app {
-    &[state="letters"] {
+    &[board="letters"] {
         letter-board {
             display: block;
         }
     }
 
-    &[state="numbers"] {
+    &[board="numbers"] {
         number-board {
             display: block;
         }
     }
 
-    &[state="conundrum"] {
+    &[board="conundrum"] {
         conundrum-board {
             display: block;
         }

@@ -28,7 +28,10 @@ export class LetterBoard extends HTMLElement {
     updateBoard () {
         this.board.reset();
         const inputs = [...this.board.querySelectorAll('input')]
-        
+
+        this.querySelector('.consonant-count').innerText = this.app.game.consonants.length;
+        this.querySelector('.vowel-count').innerText = this.app.game.vowels.length;
+
         this.app.game.boardLetters.forEach((letter, index) => {
             inputs[index].value = letter;
         });
