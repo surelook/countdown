@@ -1,4 +1,5 @@
 const paths = require('./paths')
+const webpack = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -58,6 +59,10 @@ module.exports = {
       title: 'Countdown',
       template: paths.src + '/template.html', // template file
       filename: 'index.html', // output file
+    }),
+
+    new webpack.DefinePlugin({
+      GA_TRACKING_ID: JSON.stringify(process.env.GA_TRACKING_ID)
     }),
   ],
 
