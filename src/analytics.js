@@ -1,18 +1,15 @@
 import Analytics from 'analytics'
 import googleAnalytics from '@analytics/google-analytics'
  
-const trackingId = process.env.GA_TRACKING_ID
-
-if (trackingId) {
+if (GA_TRACKING_ID) {
     const analytics = Analytics({
         app: 'countdown',
         plugins: [
           googleAnalytics({
-            trackingId: trackingId
+            trackingId: GA_TRACKING_ID
           })
         ]
       })
 
-    /* Track a page view */
     analytics.page()
 }
