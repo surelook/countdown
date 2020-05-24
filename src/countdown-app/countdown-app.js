@@ -4,8 +4,11 @@ import { CONUNDRUMS } from '../data/conundrums';
 import { VOWELS } from '../data/vowels';
 import { LARGE, SMALL } from '../data/numbers';
 
-export const shuffleArray = (array) => {
-    return array.map((a) => [Math.random(),a]).sort((a,b) => a[0]-b[0]).map((a) => a[1]);
+export const shuffleArray = (array) => {    
+    return array
+        .map(a => [Math.random(), a])
+        .sort((a, b) => a[0] - b[0])
+        .map(a => a[1]);
 }
 
 export const EVENTS = {
@@ -107,7 +110,7 @@ export class CountdownApp extends HTMLElement {
 
     createNewGame () {
         this.game = {
-            consonants: shuffleArray(CONSONANTS),
+            consonants: shuffleArray(shuffleArray(shuffleArray(shuffleArray(CONSONANTS)))),
             conundrums: shuffleArray(CONUNDRUMS),
             vowels: shuffleArray(VOWELS),
             boardLetters: [],
