@@ -24,7 +24,8 @@ number-board {
         width: 3.2ch;
         background-color: #1b4a90;
         color: white;
-        font-size: 10vw;
+        font-size: 8vw;
+        line-height: normal;
         text-transform: uppercase;
         text-align: center;
         outline: none;
@@ -48,11 +49,13 @@ number-board {
             height: 10vw;
             background-color: #458ac8;
             color: white;
-            font-size: 5.5vw;
+            font-size: 5vw;
+            line-height: normal;
             text-transform: uppercase;
             text-align: center;
             outline: none;
             cursor: default;
+            font-size-adjust: 100%;
         }
         
         input:valid {
