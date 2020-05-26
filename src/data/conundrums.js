@@ -108,10 +108,5 @@ export const CONUNDRUMS = [
         word: 'neatknob',
         clue: 'Comes in different colours and sizes',
         answer: 'banknote'
-    },
-    {
-        word: 'randybush',
-        clue: '',
-        answer: 'husbandry'
     }
 ];
