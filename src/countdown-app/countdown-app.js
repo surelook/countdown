@@ -1,5 +1,6 @@
 import { Storage } from '../storage';
 import { CONSONANTS } from '../data/consonants';
+import { CLASSIC_CONUNDRUMS } from '../data/classic-conundrums';
 import { CATS_CONUNDRUMS } from '../data/cats-conundrums';
 import { VOWELS } from '../data/vowels';
 import { LARGE, SMALL } from '../data/numbers';
@@ -12,7 +13,9 @@ export const shuffleArray = (array) => {
 }
 
 export const EVENTS = {
-    NEW_GAME_CREATED: 'new-game-created'
+    NEW_GAME_CREATED: 'new-game-created',
+    GAME_LOADED: 'game-loaded',
+    NEW_GAME_REQUESTED: 'new-game-requested'
 }
 
 export class CountdownApp extends HTMLElement {
@@ -23,15 +26,11 @@ export class CountdownApp extends HTMLElement {
     connectedCallback() {
         if (this.game) {
             this.loadGame();
-        } else {
-            this.createNewGame();
         }
 
         this.addEventListener('click', (event) => {
             if (event.target.matches('[value="new"]')) {
-                if (confirm('Starting a new game will clear progress and shuffle all letters. Would you like to start a new game?')) {
-                    this.createNewGame();
-                }
+                this.dispatchEvent(new Event(EVENTS.NEW_GAME_REQUESTED));
             }
 
             if (event.target.matches('[value="reset"]')) {
@@ -106,12 +105,13 @@ export class CountdownApp extends HTMLElement {
 
     loadGame () {
         this.board = this.game.board;
+        this.dispatchEvent(new Event(EVENTS.GAME_LOADED));
     }
 
-    createNewGame () {
+    createNewGame (isCats = false) {
         this.game = {
             consonants: shuffleArray(shuffleArray(shuffleArray(shuffleArray(CONSONANTS)))),
-            conundrums: shuffleArray(CATS_CONUNDRUMS),
+            conundrums: shuffleArray(isCats ? CATS_CONUNDRUMS : CLASSIC_CONUNDRUMS),
             vowels: shuffleArray(VOWELS),
             boardLetters: [],
             board: 'letters',

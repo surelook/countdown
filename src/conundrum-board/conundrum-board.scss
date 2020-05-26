@@ -12,7 +12,8 @@ conundrum-board {
     .conundrum-board,
     .answer-board {
         display: grid;
-        grid-template-columns: repeat(8, minmax(0, 1fr));
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(0, 1fr);
         grid-gap: 1vw;
         background: #4784b6;
         padding: 1vw;
@@ -29,10 +30,10 @@ conundrum-board {
     }
     
     .letter-tile {
+        font-family: $board-font-family;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: inherit;
         box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
         height: 10vw;
         background-color: #458ac8;

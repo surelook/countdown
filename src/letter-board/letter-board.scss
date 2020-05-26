@@ -18,10 +18,10 @@ letter-board {
     }
     
     .letter-tile {
+        font-family: $board-font-family;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: inherit;
         caret-color: transparent;
         box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
         height: 10vw;

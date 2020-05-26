@@ -13,7 +13,7 @@ $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/regular';
 
-@import 'reset';
+@import "~bulma/bulma";
 @import 'variables';
 @import '../conundrum-board/conundrum-board';
 @import '../letter-board/letter-board';
@@ -30,6 +30,10 @@ html {
 
 * { 
   box-sizing: border-box;
+}
+
+em {
+  font-style: italic;
 }
 
 p {
@@ -57,18 +61,11 @@ video {
   margin: 0.5em 0 0 0.5em;
 
   button {
-    padding: 0.5em 1em 0.7em;
-    background-color: white;
-    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
-    border: none;
-    color: hsla(0, 0%, 25%, 1);
-    border-radius: 1.2em;
-    cursor: pointer;
-    outline: none;
     margin: 0 0.5em 0.5em 0;
-
+    
     i {
       pointer-events: none;
+      margin-right: 0.5em;
     }
 
     &.fullscreen-button {
@@ -100,6 +97,7 @@ video {
   button {
     background-color: #1b4a90;
     cursor: pointer;
+    font-family: $board-font-family;
     outline: none;
     border: none;
     color: white;
@@ -111,7 +109,6 @@ video {
     font-size: 1rem;
     margin: 0;
     text-transform: uppercase;
-    font-family: inherit;
 
     [board="letters"] &[value="letters"] {
       background-color: #4784b6;

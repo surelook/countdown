@@ -22,7 +22,13 @@ export class LetterBoard extends HTMLElement {
             this.updateBoard();
         });
 
-        this.updateBoard();
+        this.app.addEventListener(EVENTS.GAME_LOADED, () => {
+            this.updateBoard();
+        });
+
+        if (this.app.game) {
+            this.updateBoard();
+        }
     }
 
     updateBoard () {

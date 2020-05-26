@@ -19,10 +19,40 @@ export class ConundrumBoard extends HTMLElement {
         })
 
         this.app.addEventListener(EVENTS.NEW_GAME_CREATED, () => {
-            this.updateBoard();
+            this.render();
         });
 
-        this.updateBoard();
+        this.app.addEventListener(EVENTS.GAME_LOADED, () => {
+            this.render();
+        });
+
+        if (this.app.game) {
+            this.render();
+        }
+    }
+
+    template = () => {
+        return `
+        <div class="board-controls">
+            <div class="controls">
+                <button class="button is-rounded is-small" value="clear">Clear Board</button>
+                <button class="button is-rounded is-small" value="new">New Conundrum</button>
+                <button class="button is-rounded is-small" value="reveal">Reveal</button>
+            </div>
+            <div class="board-selection">
+                <button value="letters">Letters</button>
+                <button value="numbers">Numbers</button>
+                <button value="conundrum">Conundrum</button>
+            </div>
+        </div>
+        <div class="board">
+            <div class="conundrum-board">
+                ${'<div class="letter-tile"></div>'.repeat(this.boardLength)}
+            </div>
+            <div class="answer-board">
+                ${'<div class="letter-tile"></div>'.repeat(this.boardLength)}
+            </div>
+        </div>`.trim();
     }
 
     get state () {
@@ -44,13 +74,21 @@ export class ConundrumBoard extends HTMLElement {
     get app () {
         return this.closest('countdown-app');
     }
+    
+    get boardLength () {
+        if (!this.app.game || !this.app.game.boardConundrum) {
+            return 9;
+        }
+
+        return this.app.game.boardConundrum.word.length;
+    }
 
     getNewConundrum () {
         const game = this.app.game;
         if (game.conundrums.length < 1) return ;
         game.boardConundrum = game.conundrums.pop();
         this.app.game = game;
-        this.updateBoard();
+        this.render();
     }
 
     reset () {
@@ -58,13 +96,13 @@ export class ConundrumBoard extends HTMLElement {
         const game = this.app.game;
         game.boardConundrum = null;
         this.app.game = game;
-        this.updateBoard();
+        this.render();
     }
 
-    updateBoard () {
+    render () {
+        this.innerHTML = this.template();
+        
         if (!this.app.game.boardConundrum) {
-            [...this.conundrumBoard.querySelectorAll('.letter-tile')].forEach(tile => tile.innerText = '');
-            [...this.answerBoard.querySelectorAll('.letter-tile')].forEach(tile => tile.innerText = '');
             return
         }
 

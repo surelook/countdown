@@ -15,11 +15,11 @@
     <video src="./videos/countdown-clock.mp4" preload="auto" poster="./images/countdown-clock-placeholder.jpg"></video>
     <div class="game-controls">
       <div class="controls">
-        <button value="new">New Game</button>
-        <button value="play"><i class="fas fa-play"></i> Start Clock</button>
-        <button value="pause"><i class="fas fa-pause"></i> Pause Clock</button>
-        <button value="reset"><i class="fas fa-history"></i> Reset Clock</button>
-        <button class="fullscreen-button" value="fullscreen">
+        <button class="button is-rounded is-small" value="new">New Game</button>
+        <button class="button is-rounded is-small" value="play"><i class="fas fa-play"></i> Start Clock</button>
+        <button class="button is-rounded is-small" value="pause"><i class="fas fa-pause"></i> Pause Clock</button>
+        <button class="button is-rounded is-small" value="reset"><i class="fas fa-history"></i> Reset Clock</button>
+        <button class="button is-rounded is-small fullscreen-button" value="fullscreen">
           <i class="fas fa-expand"></i>
           <i class="fas fa-compress"></i>
           Fullscreen
@@ -28,9 +28,9 @@
     <letter-board>
         <div class="board-controls">
           <div class="controls">
-            <button value="clear">Clear Board</button>
-            <button value="consonant">Consonant [<span class="consonant-count"></span>]</button>
-            <button value="vowel">Vowel [<span class="vowel-count"></span>]</button>
+            <button class="button is-rounded is-small" value="clear">Clear Board</button>
+            <button class="button is-rounded is-small" value="consonant">Consonant [<span class="consonant-count"></span>]</button>
+            <button class="button is-rounded is-small" value="vowel">Vowel [<span class="vowel-count"></span>]</button>
           </div>
           <div class="board-selection">
             <button value="letters">Letters</button>
@@ -38,7 +38,7 @@
             <button value="conundrum">Conundrum</button>
           </div>
         </div>
-        <form class="letter-selection">
+        <div class="letter-selection">
             <div class="letter-tile"></div>
             <div class="letter-tile"></div>
             <div class="letter-tile"></div>
@@ -48,15 +48,15 @@
             <div class="letter-tile"></div>
             <div class="letter-tile"></div>
             <div class="letter-tile"></div>
-        </form>
+        </div>
     </letter-board>
     <number-board>
       <div class="board-controls">
         <div class="controls">
-          <button value="clear">Clear Board</button>
-          <button value="large">Large</button>
-          <button value="small">Small</button>
-          <button value="target">Target</button>
+          <button class="button is-rounded is-small" value="clear">Clear Board</button>
+          <button class="button is-rounded is-small" value="large">Large</button>
+          <button class="button is-rounded is-small" value="small">Small</button>
+          <button class="button is-rounded is-small" value="target">Target</button>
         </div>
         <div class="board-selection">
           <button value="letters">Letters</button>
@@ -66,53 +66,21 @@
       </div>
       <div class="board">
         <div class="target"></div>
-        <form class="number-selection">
+        <div class="number-selection">
             <div class="number-tile"></div>
             <div class="number-tile"></div>
             <div class="number-tile"></div>
             <div class="number-tile"></div>
             <div class="number-tile"></div>
             <div class="number-tile"></div>
-        </form>
+        </div>
       </div>
   </number-board>
-  <conundrum-board>
-    <div class="board-controls">
-      <div class="controls">
-        <button value="clear">Clear Board</button>
-        <button value="new">New Conundrum</button>
-        <button value="reveal">Reveal</button>
-      </div>
-      <div class="board-selection">
-        <button value="letters">Letters</button>
-        <button value="numbers">Numbers</button>
-        <button value="conundrum">Conundrum</button>
-      </div>
-    </div>
-    <div class="board">
-      <form class="conundrum-board">
-          <div class="letter-tile"></div>
-          <div class="letter-tile"></div>
-          <div class="letter-tile"></div>
-          <div class="letter-tile"></div>
-          <div class="letter-tile"></div>
-          <div class="letter-tile"></div>
-          <div class="letter-tile"></div>
-          <div class="letter-tile"></div>
-      </form>
-      <form class="answer-board">
-          <div class="letter-tile"></div>
-          <div class="letter-tile"></div>
-          <div class="letter-tile"></div>
-          <div class="letter-tile"></div>
-          <div class="letter-tile"></div>
-          <div class="letter-tile"></div>
-          <div class="letter-tile"></div>
-          <div class="letter-tile"></div>
-      </form>
-    </div>
-  </conundrum-board>
+  <conundrum-board></conundrum-board>
 </countdown-app>
+
+<modal-welcome></modal-welcome>
+<modal-new-game></modal-new-game>
 
 </body>
 

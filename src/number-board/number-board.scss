@@ -15,7 +15,7 @@ number-board {
     }
 
     .target {
-        font-family: inherit;
+        font-family: $board-font-family;
         display: flex;
         align-items: center;
         justify-content: flex-end;
@@ -42,7 +42,7 @@ number-board {
         justify-content: center;
 
         .number-tile {
-            font-family: inherit;
+            font-family: $board-font-family;
             display: flex;
             align-items: center;
             justify-content: center;
