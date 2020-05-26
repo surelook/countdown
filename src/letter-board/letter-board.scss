@@ -17,9 +17,11 @@ letter-board {
         padding: 1vw;
     }
     
-    input {
+    .letter-tile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         font-family: inherit;
-        border: none;
         caret-color: transparent;
         box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
         height: 10vw;
@@ -28,13 +30,10 @@ letter-board {
         font-size: 10vw;
         text-transform: uppercase;
         text-align: center;
-        outline: none;
-        cursor: default;
-        line-height: normal;
         font-size: 8vw;
     }
     
-    input:valid {
+    .letter-tile:not(:empty) {
         background-color: #1b4a90;
     }
 }

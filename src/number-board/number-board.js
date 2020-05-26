@@ -33,16 +33,16 @@ export class NumberBoard extends HTMLElement {
         return this.querySelector('.board form');
     }
 
-    get selectionInputs () {
-        return this.querySelectorAll('.number-selection input');
+    get numberTiles () {
+        return this.querySelectorAll('.number-selection .number-tile');
     }
 
     get target () {
-        return this.querySelector('.target').value
+        return +this.querySelector('.target').innerText
     }
 
     set target (value) {
-        this.querySelector('.target').value = value
+        this.querySelector('.target').innerText = value
     }
 
     get app () {
@@ -101,11 +101,12 @@ export class NumberBoard extends HTMLElement {
 
     updateBoard () {
         this.target = this.app.game.target;
-        this.board.reset();
-        const inputs = [...this.selectionInputs]
-        
-        this.app.game.boardNumbers.forEach((number, index) => {
-            inputs[index].value = number;
+        const numberTiles = [...this.numberTiles];
+
+        const boardValues = [...this.app.game.boardNumbers, ...Array(6 - this.app.game.boardNumbers.length).fill('')];
+
+        boardValues.forEach((number, index) => {
+            numberTiles[index].innerText = number;
         });
     }
 }

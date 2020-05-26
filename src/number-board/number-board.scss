@@ -16,22 +16,22 @@ number-board {
 
     .target {
         font-family: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
         border: 1vw solid #2776a9;
         margin: 0 auto;
         caret-color: transparent;
         box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
-        height: 10vw;
-        width: 3.2ch;
+        height: 11vw;
+        width: 4.5ch;
         background-color: #1b4a90;
         color: white;
         font-size: 8vw;
-        line-height: normal;
         text-transform: uppercase;
-        text-align: center;
-        outline: none;
-        cursor: default;
         text-align: right;
-        padding: 0 3vw;
+        padding: 0 0.3em 0 0;
+        box-sizing: border-box;
     }
 
     .number-selection {
@@ -41,24 +41,21 @@ number-board {
         margin-top: 1vw;
         justify-content: center;
 
-        input {
+        .number-tile {
             font-family: inherit;
-            border: none;
-            caret-color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
             height: 10vw;
             background-color: #458ac8;
             color: white;
             font-size: 5vw;
-            line-height: normal;
             text-transform: uppercase;
             text-align: center;
-            outline: none;
-            cursor: default;
-            font-size-adjust: 100%;
         }
         
-        input:valid {
+        .number-tile:not(:empty) {
             background-color: #1b4a90;
         }
     }

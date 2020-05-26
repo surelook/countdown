@@ -63,21 +63,21 @@ export class ConundrumBoard extends HTMLElement {
 
     updateBoard () {
         if (!this.app.game.boardConundrum) {
-            this.conundrumBoard.reset();
-            this.answerBoard.reset();
-            return;
+            [...this.conundrumBoard.querySelectorAll('.letter-tile')].forEach(tile => tile.innerText = '');
+            [...this.answerBoard.querySelectorAll('.letter-tile')].forEach(tile => tile.innerText = '');
+            return
         }
 
         this.app.game.boardConundrum.word
             .split('')
             .forEach((letter, index) => {
-                this.conundrumBoard.querySelectorAll('input')[index].value = letter;
+                this.conundrumBoard.querySelectorAll('.letter-tile')[index].innerText = letter;
         })
 
         this.app.game.boardConundrum.answer
             .split('')
             .forEach((letter, index) => {
-                this.answerBoard.querySelectorAll('input')[index].value = letter;
+                this.answerBoard.querySelectorAll('.letter-tile')[index].innerText = letter;
         })
     }
 }

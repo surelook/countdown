@@ -26,14 +26,15 @@ export class LetterBoard extends HTMLElement {
     }
 
     updateBoard () {
-        this.board.reset();
-        const inputs = [...this.board.querySelectorAll('input')]
+        const letterTiltes = [...this.board.querySelectorAll('.letter-tile')]
 
         this.querySelector('.consonant-count').innerText = this.app.game.consonants.length;
         this.querySelector('.vowel-count').innerText = this.app.game.vowels.length;
 
-        this.app.game.boardLetters.forEach((letter, index) => {
-            inputs[index].value = letter;
+        const boardValues = [...this.app.game.boardLetters, ...Array(9 - this.app.game.boardLetters.length).fill('')];
+
+        boardValues.forEach((letter, index) => {
+            letterTiltes[index].innerText = letter;
         });
     }
 
