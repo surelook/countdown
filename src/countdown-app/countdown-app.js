@@ -1,6 +1,6 @@
 import { Storage } from '../storage';
 import { CONSONANTS } from '../data/consonants';
-import { CONUNDRUMS } from '../data/conundrums';
+import { CATS_CONUNDRUMS } from '../data/cats-conundrums';
 import { VOWELS } from '../data/vowels';
 import { LARGE, SMALL } from '../data/numbers';
 
@@ -111,7 +111,7 @@ export class CountdownApp extends HTMLElement {
     createNewGame () {
         this.game = {
             consonants: shuffleArray(shuffleArray(shuffleArray(shuffleArray(CONSONANTS)))),
-            conundrums: shuffleArray(CONUNDRUMS),
+            conundrums: shuffleArray(CATS_CONUNDRUMS),
             vowels: shuffleArray(VOWELS),
             boardLetters: [],
             board: 'letters',

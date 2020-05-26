@@ -1,4 +1,4 @@
-export const CONUNDRUMS = [
+export const CATS_CONUNDRUMS = [
     {
         word: 'IBUMPETS',
         clue: 'Not a smoooth ride',
@@ -88,11 +88,6 @@ export const CONUNDRUMS = [
         word: 'analtime',
         clue: 'You can overlay a surface',
         answer: 'Laminate'
-    },
-    {
-        word: 'twatchops',
-        clue: '',
-        answer: 'stopwatch'
     },
     {
         word: 'arsemuff',
