@@ -128,5 +128,55 @@ export const CATS_CONUNDRUMS = [
         word: 'ARYASCUNT',
         clue: 'It\'s safe to go there now',
         answer: 'Sanctuary'
+    },
+    {
+        word: 'ACESPANK',
+        clue: 'Give them a toss',
+        answer: 'PANCAKES'
+    },
+    {
+        word: 'DEERNUTS',
+        clue: 'Keep them in your mouth',
+        answer: 'DENTURES'
+    },
+    {
+        word: 'BUMDATER',
+        clue: 'Give it a tap',
+        answer: 'DRUMBEAT'
+    },
+    {
+        word: 'FINENUTS',
+        clue: 'Describes me perfectly',
+        answer: 'FUNNIEST'
+    },
+    {
+        word: 'BUMSINGE',
+        clue: 'It\'s a peculiar feeling',
+        answer: 'BEMUSING'
+    },
+    {
+        word: 'STICKYJO',
+        clue: 'Will give you a good time',
+        answer: 'JOYSTICK'
+    },
+    {
+        word: 'BEDOSMAN',
+        clue: 'The harder the better',
+        answer: 'ABDOMENS'
+    },
+    {
+        word: 'BEDSOWET',
+        clue: 'A gift from me to you',
+        answer: 'BESTOWED'
+    },
+    {
+        word: 'NUDEFRED',
+        clue: 'Get what you deserve',
+        answer: 'REFUNDED'
+    },
+    {
+        word: 'LICKPITS',
+        clue: 'Get this round your mouth',
+        answer: 'LIPSTICK'
     }
 ];
