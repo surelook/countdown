@@ -23,16 +23,44 @@ export class NumberBoard extends HTMLElement {
         })
 
         this.app.addEventListener(EVENTS.NEW_GAME_CREATED, () => {
-            this.updateBoard();
+            this.render();
         });
 
         this.app.addEventListener(EVENTS.GAME_LOADED, () => {
-            this.updateBoard();
+            this.render();
         });
 
         if (this.app.game) {
-            this.updateBoard();
+            this.render();
         }
+    }
+
+    template = () => {
+        return `
+        <div class="board-controls">
+            <div class="controls">
+            <button class="button is-rounded is-small" value="clear">Clear Board</button>
+            <button class="button is-rounded is-small" value="large">Large</button>
+            <button class="button is-rounded is-small" value="small">Small</button>
+            <button class="button is-rounded is-small" value="target">Target</button>
+            </div>
+            <div class="board-selection">
+            <button value="letters">Letters</button>
+            <button value="numbers">Numbers</button>
+            <button value="conundrum">Conundrum</button>
+            </div>
+        </div>
+        <div class="board">
+            <div class="target"></div>
+            <div class="number-selection">
+                <div class="number-tile"></div>
+                <div class="number-tile"></div>
+                <div class="number-tile"></div>
+                <div class="number-tile"></div>
+                <div class="number-tile"></div>
+                <div class="number-tile"></div>
+            </div>
+        </div>`.trim();
     }
 
     get board () {
@@ -82,7 +110,7 @@ export class NumberBoard extends HTMLElement {
         game.largeNumbers = shuffleArray(LARGE);
         game.smallNumbers = shuffleArray(SMALL);
         this.app.game = game;
-        this.updateBoard();
+        this.render();
     }
 
     takeLarge () {
@@ -92,7 +120,7 @@ export class NumberBoard extends HTMLElement {
         const number = game.largeNumbers.pop();
         game.boardNumbers.push(number)
         this.app.game = game;
-        this.updateBoard();
+        this.render();
     }
 
     takeSmall () {
@@ -102,10 +130,11 @@ export class NumberBoard extends HTMLElement {
         const number = game.smallNumbers.pop();
         game.boardNumbers.push(number)
         this.app.game = game;
-        this.updateBoard();
+        this.render();
     }
 
-    updateBoard () {
+    render () {
+        this.innerHTML = this.template();
         this.target = this.app.game.target;
         const numberTiles = [...this.numberTiles];
 

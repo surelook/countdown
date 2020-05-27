@@ -23,6 +23,29 @@ export class CountdownApp extends HTMLElement {
         return ['board'];
     }
 
+    template = () => {
+        return `
+        <video src="./videos/countdown-clock.mp4" preload="auto" poster="./images/countdown-clock-placeholder.jpg"></video>
+        <div class="game-controls">
+            <div class="controls">
+                <button class="button is-rounded is-small" value="new">New Game</button>
+                <button class="button is-rounded is-small" value="play"><i class="fas fa-play"></i> Start Clock</button>
+                <button class="button is-rounded is-small" value="pause"><i class="fas fa-pause"></i> Pause Clock</button>
+                <button class="button is-rounded is-small" value="reset"><i class="fas fa-history"></i> Reset Clock</button>
+                <button class="button is-rounded is-small fullscreen-button" value="fullscreen">
+                    <i class="fas fa-expand"></i>
+                    <i class="fas fa-compress"></i>
+                    Fullscreen
+                </button>
+            </div>
+        </div>
+        <letter-board></letter-board>
+        <number-board></number-board>
+        <conundrum-board></conundrum-board>
+        <modal-welcome></modal-welcome>
+        <modal-new-game></modal-new-game>`
+    }
+
     connectedCallback() {
         if (this.game) {
             this.loadGame();
@@ -65,6 +88,8 @@ export class CountdownApp extends HTMLElement {
                 this.board = 'conundrum';
             } 
         })
+
+        this.render()
     }
 
     get game () {
@@ -125,5 +150,9 @@ export class CountdownApp extends HTMLElement {
         this.dispatchEvent(new Event(EVENTS.NEW_GAME_CREATED));
 
         this.board = this.game.board;
+    }
+
+    render () {
+        this.innerHTML = this.template();
     }
 }

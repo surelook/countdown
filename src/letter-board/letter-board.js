@@ -16,22 +16,48 @@ export class LetterBoard extends HTMLElement {
             }
         })
 
-        this.board.addEventListener('keydown', (event) => event.preventDefault());
-
         this.app.addEventListener(EVENTS.NEW_GAME_CREATED, () => {
-            this.updateBoard();
+            this.render();
         });
 
         this.app.addEventListener(EVENTS.GAME_LOADED, () => {
-            this.updateBoard();
+            this.render();
         });
 
         if (this.app.game) {
-            this.updateBoard();
+            this.render();
         }
     }
+    template = () => {
+        return `
+        <div class="board-controls">
+            <div class="controls">
+            <button class="button is-rounded is-small" value="clear">Clear Board</button>
+            <button class="button is-rounded is-small" value="consonant">Consonant [<span class="consonant-count"></span>]</button>
+            <button class="button is-rounded is-small" value="vowel">Vowel [<span class="vowel-count"></span>]</button>
+            </div>
+            <div class="board-selection">
+            <button value="letters">Letters</button>
+            <button value="numbers">Numbers</button>
+            <button value="conundrum">Conundrum</button>
+            </div>
+        </div>
+        <div class="letter-selection">
+            <div class="letter-tile"></div>
+            <div class="letter-tile"></div>
+            <div class="letter-tile"></div>
+            <div class="letter-tile"></div>
+            <div class="letter-tile"></div>
+            <div class="letter-tile"></div>
+            <div class="letter-tile"></div>
+            <div class="letter-tile"></div>
+            <div class="letter-tile"></div>
+        </div>`.trim();
+    }
 
-    updateBoard () {
+    render () {
+        this.innerHTML = this.template();
+
         const letterTiltes = [...this.board.querySelectorAll('.letter-tile')]
 
         this.querySelector('.consonant-count').innerText = this.app.game.consonants.length;
@@ -50,7 +76,7 @@ export class LetterBoard extends HTMLElement {
         const consonant = game.consonants.pop();
         game.boardLetters.push(consonant)
         this.app.game = game;
-        this.updateBoard();
+        this.render();
     }
 
     takeVowel () {
@@ -59,14 +85,14 @@ export class LetterBoard extends HTMLElement {
         const vowel = game.vowels.pop();
         game.boardLetters.push(vowel)
         this.app.game = game;
-        this.updateBoard();
+        this.render();
     }
 
     reset () {
         const game = {...this.app.game};
         game.boardLetters = [];
         this.app.game = game;
-        this.updateBoard();
+        this.render();
     }
 
     get board () {

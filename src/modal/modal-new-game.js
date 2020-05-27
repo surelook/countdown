@@ -37,7 +37,7 @@ export class ModalNewGame extends HTMLElement {
     }
 
     get app () {
-        return document.querySelector('countdown-app');
+        return this.closest('countdown-app');
     }
 
     template = () => `
