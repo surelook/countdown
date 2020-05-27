@@ -103,5 +103,30 @@ export const CATS_CONUNDRUMS = [
         word: 'neatknob',
         clue: 'Comes in different colours and sizes',
         answer: 'banknote'
+    },
+    {
+        word: 'MESOHORN',
+        clue: 'You might have a lot of these',
+        answer: 'Hormones'
+    },
+    {
+        word: 'HOMOPANTY',
+        clue: 'You may have to dig this one up',
+        answer: 'Taphonomy'
+    },
+    {
+        word: 'BUMSPENIS',
+        clue: 'It\'s ribbed for your pleasure',
+        answer: 'Bumpiness'
+    },
+    {
+        word: 'WHORESING',
+        clue: 'She\'ll be doing this afterwards',
+        answer: 'Showering'
+    },
+    {
+        word: 'ARYASCUNT',
+        clue: 'It\'s safe to go there now',
+        answer: 'Sanctuary'
     }
 ];
