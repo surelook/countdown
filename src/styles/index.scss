@@ -110,6 +110,10 @@ video {
     margin: 0;
     text-transform: uppercase;
 
+    @media screen and (max-width: 640px) {
+      font-size: 0.7rem;
+    }
+
     [board="letters"] &[value="letters"] {
       background-color: #4784b6;
       box-shadow: none;
@@ -141,6 +145,7 @@ video {
 
 .board-controls {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .modal-content {

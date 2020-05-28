@@ -32,9 +32,11 @@ export class LetterBoard extends HTMLElement {
         return `
         <div class="board-controls">
             <div class="controls">
-            <button class="button is-rounded is-small" value="clear">Clear Board</button>
-            <button class="button is-rounded is-small" value="consonant">Consonant [<span class="consonant-count"></span>]</button>
-            <button class="button is-rounded is-small" value="vowel">Vowel [<span class="vowel-count"></span>]</button>
+                <button class="button is-rounded is-small" value="clear">Clear Board</button>
+                <div>
+                    <button class="button is-rounded is-small" value="consonant">Consonant [<span class="consonant-count"></span>]</button>
+                    <button class="button is-rounded is-small" value="vowel">Vowel [<span class="vowel-count"></span>]</button>
+                </div>
             </div>
             <div class="board-selection">
             <button value="letters">Letters</button>

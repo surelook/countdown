@@ -40,9 +40,11 @@ export class NumberBoard extends HTMLElement {
         <div class="board-controls">
             <div class="controls">
                 <button class="button is-rounded is-small" value="clear">Clear Board</button>
-                <button class="button is-rounded is-small" value="large">Large</button>
-                <button class="button is-rounded is-small" value="small">Small</button>
-                <button class="button is-rounded is-small" value="target">Target</button>
+                <div>
+                    <button class="button is-rounded is-small" value="large">Large</button>
+                    <button class="button is-rounded is-small" value="small">Small</button>
+                    <button class="button is-rounded is-small" value="target">Target</button>
+                </div>
             </div>
             <div class="board-selection">
                 <button value="letters">Letters</button>

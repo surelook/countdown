@@ -36,8 +36,10 @@ export class ConundrumBoard extends HTMLElement {
         <div class="board-controls">
             <div class="controls">
                 <button class="button is-rounded is-small" value="clear">Clear Board</button>
-                <button class="button is-rounded is-small" value="new">New Conundrum</button>
-                <button class="button is-rounded is-small" value="reveal">Reveal</button>
+                <div>
+                    <button class="button is-rounded is-small" value="new">New Conundrum</button>
+                    <button class="button is-rounded is-small" value="reveal">Reveal</button>
+                </div>
             </div>
             <div class="board-selection">
                 <button value="letters">Letters</button>
