@@ -4,13 +4,7 @@ import { CLASSIC_CONUNDRUMS } from '../data/classic-conundrums';
 import { CATS_CONUNDRUMS } from '../data/cats-conundrums';
 import { VOWELS } from '../data/vowels';
 import { LARGE, SMALL } from '../data/numbers';
-
-export const shuffleArray = (array) => {    
-    return array
-        .map(a => [Math.random(), a])
-        .sort((a, b) => a[0] - b[0])
-        .map(a => a[1]);
-}
+import { shuffleArray } from '../utils';
 
 export const EVENTS = {
     NEW_GAME_CREATED: 'new-game-created',

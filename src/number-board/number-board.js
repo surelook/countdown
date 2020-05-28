@@ -1,5 +1,5 @@
 import { EVENTS } from '../countdown-app/countdown-app';
-import { shuffleArray } from '../countdown-app/countdown-app';
+import { shuffleArray } from '../utils';
 import { LARGE, SMALL } from '../data/numbers';
 
 export class NumberBoard extends HTMLElement {
@@ -39,26 +39,21 @@ export class NumberBoard extends HTMLElement {
         return `
         <div class="board-controls">
             <div class="controls">
-            <button class="button is-rounded is-small" value="clear">Clear Board</button>
-            <button class="button is-rounded is-small" value="large">Large</button>
-            <button class="button is-rounded is-small" value="small">Small</button>
-            <button class="button is-rounded is-small" value="target">Target</button>
+                <button class="button is-rounded is-small" value="clear">Clear Board</button>
+                <button class="button is-rounded is-small" value="large">Large</button>
+                <button class="button is-rounded is-small" value="small">Small</button>
+                <button class="button is-rounded is-small" value="target">Target</button>
             </div>
             <div class="board-selection">
-            <button value="letters">Letters</button>
-            <button value="numbers">Numbers</button>
-            <button value="conundrum">Conundrum</button>
+                <button value="letters">Letters</button>
+                <button value="numbers">Numbers</button>
+                <button value="conundrum">Conundrum</button>
             </div>
         </div>
         <div class="board">
             <div class="target"></div>
             <div class="number-selection">
-                <div class="number-tile"></div>
-                <div class="number-tile"></div>
-                <div class="number-tile"></div>
-                <div class="number-tile"></div>
-                <div class="number-tile"></div>
-                <div class="number-tile"></div>
+                ${'<div class="number-tile"></div>'.repeat(6)}
             </div>
         </div>`.trim();
     }
@@ -137,7 +132,6 @@ export class NumberBoard extends HTMLElement {
         this.innerHTML = this.template();
         this.target = this.app.game.target;
         const numberTiles = [...this.numberTiles];
-
         const boardValues = [...this.app.game.boardNumbers, ...Array(6 - this.app.game.boardNumbers.length).fill('')];
 
         boardValues.forEach((number, index) => {

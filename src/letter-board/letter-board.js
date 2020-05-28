@@ -43,15 +43,7 @@ export class LetterBoard extends HTMLElement {
             </div>
         </div>
         <div class="letter-selection">
-            <div class="letter-tile"></div>
-            <div class="letter-tile"></div>
-            <div class="letter-tile"></div>
-            <div class="letter-tile"></div>
-            <div class="letter-tile"></div>
-            <div class="letter-tile"></div>
-            <div class="letter-tile"></div>
-            <div class="letter-tile"></div>
-            <div class="letter-tile"></div>
+            ${'<div class="letter-tile"></div>'.repeat(9)}
         </div>`.trim();
     }
 
