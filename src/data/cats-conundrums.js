@@ -187,5 +187,19 @@ export const CATS_CONUNDRUMS = [
     {
         word: 'TWATREHAB',
         answer: 'BATHWATER'
+    },
+    {
+        word: 'LUBEDONG',
+        clue: 'Give it a whack',
+        answer: 'BLUDGEON'
+    },
+    {
+        word: 'EATSHITE',
+        clue: 'Think twice about it',
+        answer: 'HESITATE'
+    },
+    {
+        word: 'IRISHTART',
+        answer: 'ARTHRITIS'
     }
 ];
