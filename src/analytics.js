@@ -7,7 +7,7 @@ if (GA_TRACKING_ID) {
         app: 'countdown',
         plugins: [
           googleAnalytics({
-            trackingId: 'GA_TRACKING_ID'
+            trackingId: GA_TRACKING_ID
           })
         ]
       })
