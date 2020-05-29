@@ -178,5 +178,19 @@ export const CATS_CONUNDRUMS = [
         word: 'LICKPITS',
         clue: 'Get this round your mouth',
         answer: 'LIPSTICK'
+    },
+    {
+        word: 'NUDEFRED',
+        clue: 'Get what you deserve',
+        answer: 'REFUNDED'
+    },
+    {
+        word: 'SLAGNITE',
+        clue: 'A private affair',
+        answer: 'GENITALS'
+    },
+    {
+        word: 'TWATREHAB',
+        answer: 'BATHWATER'
     }
 ];
