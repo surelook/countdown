@@ -141,7 +141,12 @@ export class CountdownApp extends HTMLElement {
             boardConundrum: null
         }
 
-        this.dispatchEvent(new Event(EVENTS.NEW_GAME_CREATED));
+        this.dispatchEvent(new CustomEvent(EVENTS.NEW_GAME_CREATED, {
+            bubbles: true,
+            detail: {
+                gameMode: isCats ? 'cats' : 'classic'
+            }
+        }));
 
         this.board = this.game.board;
     }
