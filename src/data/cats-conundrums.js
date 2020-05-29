@@ -180,11 +180,6 @@ export const CATS_CONUNDRUMS = [
         answer: 'LIPSTICK'
     },
     {
-        word: 'NUDEFRED',
-        clue: 'Get what you deserve',
-        answer: 'REFUNDED'
-    },
-    {
         word: 'SLAGNITE',
         clue: 'A private affair',
         answer: 'GENITALS'
