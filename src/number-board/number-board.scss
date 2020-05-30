@@ -59,28 +59,10 @@ number-board {
             background-color: #1b4a90;
         }
     }
-}
 
-modal-number-solution .card-content {
-    background-color: #fff;
-    $line-color: rgba(0, 0, 0, 0.05);
-    $grid-lines : $line-color,  $line-color 1px, transparent 2px, transparent 3rem;
-    background-position: -1.5rem -1.5rem;
-    background-repeat: no-repeat;
-    background-size: calc(100% + 3rem) calc(100% + 3rem);
-    background-image:
-    repeating-linear-gradient(to right, $grid-lines),
-    repeating-linear-gradient(to bottom, $grid-lines);
-        ;
-
-    @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
-
-    display: flex;
-    white-space: pre-line;
-    align-items: center;
-    justify-content: center;
-    font-family: comic;
-    font-size: 2em;
-    line-height: 1.5;
-    font-family: 'Nanum Pen Script';
+    @media screen and (max-width: 640px) {
+        [value="solve"] {
+            display: none;
+        }
+    }
 }

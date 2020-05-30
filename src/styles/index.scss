@@ -8,6 +8,11 @@
   src: url('../fonts/Futura URW Extra Bold.ttf');
 }
 
+@font-face {
+  font-family: 'Nanum Pen Script';
+  src: url('../fonts/NanumPenScript-Regular.ttf');
+}
+
 $fa-font-path: '~@fortawesome/fontawesome-free/webfonts'; 
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import '~@fortawesome/fontawesome-free/scss/solid';
@@ -19,6 +24,7 @@ $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 @import '../letter-board/letter-board';
 @import '../number-board/number-board';
 @import '../countdown-app/countdown-app';
+@import '../modal/modal-number-solution';
 
 html {
   font-size: $root-font-size;

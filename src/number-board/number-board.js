@@ -159,7 +159,6 @@ export class NumberBoard extends HTMLElement {
     solve () {
         let numbers = this.app.game.boardNumbers;
         let target = this.app.game.target;
-        console.log('solving')
         document.querySelector('modal-number-solution')
             .setSolution(solveNumbers(numbers, target))
     }

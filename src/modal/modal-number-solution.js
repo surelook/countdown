@@ -23,7 +23,7 @@ export class ModalNumberSolution extends HTMLElement {
                 <div class="modal-content">
                     <div class="card">
                         <div class="card-content">
-                            <div class="content solution">${this.solution.trim()}</div>
+                            <div class="content solution">${this.solution}</div>
                         </div>
                         <footer class="card-footer">
                             <a href="#" data-action="dismiss" class="card-footer-item">Continue</a>
