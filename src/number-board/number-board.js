@@ -1,6 +1,7 @@
 import { EVENTS } from '../countdown-app/countdown-app';
 import { shuffleArray } from '../utils';
 import { LARGE, SMALL } from '../data/numbers';
+import { solve_numbers as solveNumbers } from './solver'
 
 export class NumberBoard extends HTMLElement {
     connectedCallback() {
@@ -19,6 +20,10 @@ export class NumberBoard extends HTMLElement {
 
             if (event.target.matches('[value="target"]')) {
                 this.setTarget();
+            }
+
+            if (event.target.matches('[value="solve"]')) {
+                this.solve();
             }
         })
 
@@ -44,6 +49,11 @@ export class NumberBoard extends HTMLElement {
                     <button class="button is-rounded is-small" value="large">Large</button>
                     <button class="button is-rounded is-small" value="small">Small</button>
                     <button class="button is-rounded is-small" value="target">Target</button>
+                    ${this.readyToSolve ? 
+                        `<button class="button is-rounded is-small" value="solve">Solution</button>`
+                        :
+                        ``
+                    }
                 </div>
             </div>
             <div class="board-selection">
@@ -80,6 +90,10 @@ export class NumberBoard extends HTMLElement {
         return this.closest('countdown-app');
     }
 
+    get readyToSolve () {
+        return this.app.game.boardNumbers.length > 5 && this.app.game.target > 100
+    }
+
     setTarget () {
         let count = 100;
 
@@ -91,6 +105,7 @@ export class NumberBoard extends HTMLElement {
                 const game = {...this.app.game};
                 game.target = this.target;
                 this.app.game = game;
+                this.render();
                 return
             }
 
@@ -139,5 +154,13 @@ export class NumberBoard extends HTMLElement {
         boardValues.forEach((number, index) => {
             numberTiles[index].innerText = number;
         });
+    }
+
+    solve () {
+        let numbers = this.app.game.boardNumbers;
+        let target = this.app.game.target;
+        console.log('solving')
+        document.querySelector('modal-number-solution')
+            .setSolution(solveNumbers(numbers, target))
     }
 }

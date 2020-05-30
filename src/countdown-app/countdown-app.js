@@ -37,7 +37,8 @@ export class CountdownApp extends HTMLElement {
         <number-board></number-board>
         <conundrum-board></conundrum-board>
         <modal-welcome></modal-welcome>
-        <modal-new-game></modal-new-game>`
+        <modal-new-game></modal-new-game>
+        <modal-number-solution></modal-number-solution>`
     }
 
     connectedCallback() {
