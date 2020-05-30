@@ -15,9 +15,8 @@ if (GA_TRACKING_ID) {
     analytics.page()
 
     document.addEventListener(EVENTS.NEW_GAME_CREATED, (event) => {
-        analytics.track('newGame', {
-          category: 'New Game',
-          label: event.detail.gameMode
+        analytics.track(`New ${event.detail.gameMode} Game` , {
+          category: 'New Game'
         });
     })
 }

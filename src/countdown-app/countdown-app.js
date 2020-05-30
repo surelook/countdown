@@ -144,7 +144,7 @@ export class CountdownApp extends HTMLElement {
         this.dispatchEvent(new CustomEvent(EVENTS.NEW_GAME_CREATED, {
             bubbles: true,
             detail: {
-                gameMode: isCats ? 'cats' : 'classic'
+                gameMode: isCats ? 'Cats' : 'Classic'
             }
         }));
 
