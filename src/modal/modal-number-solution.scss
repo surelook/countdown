@@ -17,8 +17,4 @@ modal-number-solution .card-content {
     font-size: 2em;
     line-height: 1.5;
     font-family: 'Nanum Pen Script', cursive;
-
-    @media screen and (max-width: 640px) {
-        display: none;
-    }
 }

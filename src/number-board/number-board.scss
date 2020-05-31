@@ -59,10 +59,4 @@ number-board {
             background-color: #1b4a90;
         }
     }
-
-    @media screen and (max-width: 640px) {
-        [value="solve"] {
-            display: none;
-        }
-    }
 }
