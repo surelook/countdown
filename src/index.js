@@ -10,6 +10,7 @@ import { ModalNumberSolution } from './modal/modal-number-solution'
 import { ModalWelcome } from './modal/modal-welcome'
 import { NumberBoard } from './number-board/number-board'
 import './analytics'
+import './data/dictionary'
 
 customElements.define('board-drawer', BoardDrawer);
 customElements.define('countdown-app', CountdownApp);
