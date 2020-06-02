@@ -175,11 +175,9 @@ const stringify_result = (serialised, target) => {
         output += '(off by ' + (Math.abs(result - target)) + ')\n';
     }
 
-    console.log(output)
     output = output
         .replace(/\*/g, '&times;')
         .replace(/\//g, '&divide;')
-    console.log(output)
 
     return output;
 }
