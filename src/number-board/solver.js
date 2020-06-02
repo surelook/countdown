@@ -9,21 +9,26 @@ let bestresult
 let childs
 let bestvalsums;
 
+
 const OPS = {
-    "&plus;": (n1, n2) => { if (n1 < 0 || n2 < 0) return false; return n1+n2; },
+    "+": (n1, n2) => { if (n1 < 0 || n2 < 0) return false; return n1+n2; },
     "-": (n1, n2) => { if (n2 >= n1) return false; return n1-n2; },
-    "&times;": (n1, n2) => { return n1*n2; },
-    "&divide;": (n1, n2) => { if (n2 == 0 || n1%n2 != 0) return false; return n1/n2; }
+    "_": (n2, n1) => { if (n2 >= n1) return false; return n1-n2; },
+    "*": (n1, n2) => { return n1*n2; },
+    "/": (n1, n2) => { if (n2 == 0 || n1%n2 != 0) return false; return n1/n2; },
+    "?": (n2, n1) => { if (n2 == 0 || n1%n2 != 0) return false; return n1/n2; },
 };
 
 const OPCOST = {
-    "&plus;": 1,
+    "+": 1,
     "-": 1.05,
-    "&times;": 1.2,
-    "&divide;": 1.3,
+    "_": 1.05,
+    "*": 1.2,
+    "/": 1.3,
+    "?": 1.3,
 };
 
-const recurse_solve_numbers = (numbers, searchedi, was_generated, target, levels, valsums, trickshot) => {
+const _recurse_solve_numbers = (numbers, searchedi, was_generated, target, levels, valsums, trickshot) => {
     levels--;
 
     for (let i = 0; i < numbers.length-1; i++) {
@@ -48,7 +53,7 @@ const recurse_solve_numbers = (numbers, searchedi, was_generated, target, levels
                 if (r === false)
                     continue;
 
-                    let op_cost = Math.abs(r);
+                let op_cost = Math.abs(r);
                 while (op_cost % 10 == 0 && op_cost != 0)
                     op_cost /= 10;
                 if ((ni[0] == 10 || nj[0] == 10) && o == '*') // HACK: multiplication by 10 is cheap
@@ -68,7 +73,7 @@ const recurse_solve_numbers = (numbers, searchedi, was_generated, target, levels
                 was_generated[j] = true;
 
                 if (levels > 0 && (trickshot || bestresult[0] != target || newvalsums < bestvalsums))
-                    recurse_solve_numbers(numbers, i+1, was_generated, target, levels, newvalsums, trickshot);
+                    _recurse_solve_numbers(numbers, i+1, was_generated, target, levels, newvalsums, trickshot);
 
                 was_generated[j] = old_was_gen;
                 numbers[j] = nj;
@@ -81,11 +86,11 @@ const recurse_solve_numbers = (numbers, searchedi, was_generated, target, levels
 
 const tidyup_result = (result) => {
     let mapping = {
-        "?": "&divide", "_": "-"
+        "?": "/", "_": "-"
     };
 
     let swappable = {
-        "&times;": true, "&plus;": true
+        "*": true, "+": true
     };
 
     if (result.length < 4)
@@ -110,7 +115,7 @@ const tidyup_result = (result) => {
         result[2] = result[3];
         result[3] = j;
     } else if (swappable[result[1]]) {
-        childs = result.slice(2).sort((a,b) => b[0] - a[0]);
+        childs = result.slice(2).sort((a,b) => { return b[0] - a[0]; });
         for (let i = 2; i < result.length; i++)
             result[i] = childs[i-2];
     }
@@ -166,14 +171,21 @@ const stringify_result = (serialised, target) => {
     }
 
     let result = serialised[serialised.length-1][0];
-    if (result != target)
+    if (result != target) {
         output += '(off by ' + (Math.abs(result - target)) + ')\n';
+    }
+
+    console.log(output)
+    output = output
+        .replace(/\*/g, '&times;')
+        .replace(/\//g, '&divide;')
+    console.log(output)
 
     return output;
 }
 
 const _solve_numbers = (numbers, target, trickshot) => {
-    numbers = numbers.map((x) => [x, false]);
+    numbers = numbers.map((x) => { return [x, false] });
 
     let was_generated = [];
     for (let i = 0; i < numbers.length; i++)
@@ -182,7 +194,7 @@ const _solve_numbers = (numbers, target, trickshot) => {
     bestresult = [0, 0];
 
     /* attempt to solve with dfs */
-    recurse_solve_numbers(numbers, 0, was_generated, target, numbers.length, 0, trickshot);
+    _recurse_solve_numbers(numbers, 0, was_generated, target, numbers.length, 0, trickshot);
 
     return bestresult;
 }
