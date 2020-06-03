@@ -45,6 +45,7 @@ export class CountdownApp extends HTMLElement {
         </board-drawer>
         <modal-welcome></modal-welcome>
         <modal-new-game></modal-new-game>
+        <modal-letter-solution></modal-letter-solution>
         <modal-number-solution></modal-number-solution>`
     }
 

@@ -9,7 +9,6 @@ let bestresult
 let childs
 let bestvalsums;
 
-
 const OPS = {
     "+": (n1, n2) => { if (n1 < 0 || n2 < 0) return false; return n1+n2; },
     "-": (n1, n2) => { if (n2 >= n1) return false; return n1-n2; },

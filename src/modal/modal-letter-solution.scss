@@ -1,0 +1,32 @@
+modal-letter-solution .card-content {
+    display: flex;
+    justify-content: center;
+
+    .letters {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 2em;
+        grid-gap: 2px;
+        background-color: #4784b6;
+        padding: 2px;
+    }
+    
+    .letter-tile {
+        font-family: $board-font-family;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
+        height: 2em;
+        background-color: #1b4a90;
+        color: white;
+        text-transform: uppercase;
+    }
+
+    [data-action="previous"],
+    [data-action="next"]{
+        i {
+            pointer-events: none;
+        }
+    }
+}

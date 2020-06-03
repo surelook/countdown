@@ -1,4 +1,5 @@
 import { EVENTS } from '../countdown-app/countdown-app'
+import { Dictionary } from '../dictionary'
 
 export class LetterBoard extends HTMLElement {
     connectedCallback() {
@@ -14,6 +15,10 @@ export class LetterBoard extends HTMLElement {
             if (event.target.matches('[value="vowel"]')) {
                 this.takeVowel();
             }
+
+            if (event.target.matches('[value="solve"]')) {
+                this.solve();
+            }
         })
 
         this.app.addEventListener(EVENTS.NEW_GAME_CREATED, () => {
@@ -28,6 +33,7 @@ export class LetterBoard extends HTMLElement {
             this.render();
         }
     }
+
     template = () => {
         return `
         <div class="letter-selection">
@@ -39,11 +45,20 @@ export class LetterBoard extends HTMLElement {
                 <div>
                     <button class="button is-rounded is-small" value="consonant">Consonant [${this.app.game.consonants.length}]</button>
                     <button class="button is-rounded is-small" value="vowel">Vowel [${this.app.game.vowels.length}]</button>
+                    ${this.readyToSolve ? 
+                        `<button class="button is-rounded is-small" value="solve">Solutions</button>`
+                        :
+                        ``
+                    }
                 </div>
             </div>
            
         </div>
         `.trim();
+    }
+
+    get readyToSolve () {
+        return this.app.game.boardLetters.length > 8
     }
 
     render () {
@@ -89,5 +104,13 @@ export class LetterBoard extends HTMLElement {
 
     get app () {
         return this.closest('countdown-app');
+    }
+
+    solve () {
+        Dictionary.getSolutions(this.app.game.boardLetters)
+            .then((solutions) => {
+                document.querySelector('modal-letter-solution')
+                    .setSolutions(solutions)
+            })
     }
 }
