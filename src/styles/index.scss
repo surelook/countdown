@@ -20,6 +20,7 @@ $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 
 @import "~bulma/bulma";
 @import 'variables';
+@import '../boards-drawer/board-drawer';
 @import '../conundrum-board/conundrum-board';
 @import '../letter-board/letter-board';
 @import '../number-board/number-board';
@@ -64,7 +65,8 @@ video {
   display: flex;
   flex-wrap: wrap;
   text-align: left;
-  margin: 0.5em 0 0 0.5em;
+  justify-content: center;
+  margin: 0.5em 0 0.5em 0.5em;
 
   button {
     margin: 0 0.5em 0.5em 0;
@@ -99,10 +101,15 @@ video {
 }
 
 .board-selection {
-  display: flex;
-  top: -2em;
-  right: 0;
-  margin-left: auto;
+  display: grid;
+  width: 100vw;
+  margin: 0 auto;
+  grid-auto-flow: column;
+  justify-content: center;
+  grid-auto-columns: 1fr;
+  grid-gap: 1px;
+  padding-top: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
   
   button {
     background-color: #1b4a90;
@@ -110,12 +117,9 @@ video {
     font-family: $board-font-family;
     outline: none;
     border: none;
-    color: white;
-    box-shadow: inset 0 -10px 10px -10px rgba(0, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.25);
     align-self: flex-end;
     padding: 0.5em 1em;
-    border-radius: 0.5em 0.5em 0 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 1rem;
     margin: 0;
     text-transform: uppercase;
@@ -125,18 +129,15 @@ video {
     }
 
     [board="letters"] &[value="letters"] {
-      background-color: #4784b6;
-      box-shadow: none;
+      color: white;
     }
 
     [board="numbers"] &[value="numbers"] {
-      background-color: #0666ae;
-      box-shadow: none;
+      color: white;
     }
 
     [board="conundrum"] &[value="conundrum"] {
-      background-color: #4784b6;
-      box-shadow: none;
+      color: white;
     }
   }
 }
@@ -156,6 +157,7 @@ video {
 .board-controls {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .modal-content {

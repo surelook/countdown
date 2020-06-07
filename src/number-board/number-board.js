@@ -42,6 +42,12 @@ export class NumberBoard extends HTMLElement {
 
     template = () => {
         return `
+        <div class="board">
+            <div class="target"></div>
+            <div class="number-selection">
+                ${'<div class="number-tile"></div>'.repeat(6)}
+            </div>
+        </div>
         <div class="board-controls">
             <div class="controls">
                 <button class="button is-rounded is-small" value="clear">Clear Board</button>
@@ -55,17 +61,6 @@ export class NumberBoard extends HTMLElement {
                         ``
                     }
                 </div>
-            </div>
-            <div class="board-selection">
-                <button value="letters">Letters</button>
-                <button value="numbers">Numbers</button>
-                <button value="conundrum">Conundrum</button>
-            </div>
-        </div>
-        <div class="board">
-            <div class="target"></div>
-            <div class="number-selection">
-                ${'<div class="number-tile"></div>'.repeat(6)}
             </div>
         </div>`.trim();
     }

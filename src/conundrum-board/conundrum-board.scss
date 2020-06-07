@@ -1,5 +1,5 @@
 conundrum-board {
-    position: fixed;
+    position: relative;
     display: none;
     bottom: 0;
     left: 0;
@@ -15,7 +15,7 @@ conundrum-board {
         grid-auto-flow: column;
         grid-auto-columns: minmax(0, 1fr);
         grid-gap: 1vw;
-        background: #4784b6;
+        background: #0666ae;
         padding: 1vw;
     }
 

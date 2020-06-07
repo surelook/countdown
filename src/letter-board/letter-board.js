@@ -30,32 +30,26 @@ export class LetterBoard extends HTMLElement {
     }
     template = () => {
         return `
+        <div class="letter-selection">
+            ${'<div class="letter-tile"></div>'.repeat(9)}
+        </div>
         <div class="board-controls">
             <div class="controls">
                 <button class="button is-rounded is-small" value="clear">Clear Board</button>
                 <div>
-                    <button class="button is-rounded is-small" value="consonant">Consonant [<span class="consonant-count"></span>]</button>
-                    <button class="button is-rounded is-small" value="vowel">Vowel [<span class="vowel-count"></span>]</button>
+                    <button class="button is-rounded is-small" value="consonant">Consonant [${this.app.game.consonants.length}]</button>
+                    <button class="button is-rounded is-small" value="vowel">Vowel [${this.app.game.vowels.length}]</button>
                 </div>
             </div>
-            <div class="board-selection">
-            <button value="letters">Letters</button>
-            <button value="numbers">Numbers</button>
-            <button value="conundrum">Conundrum</button>
-            </div>
+           
         </div>
-        <div class="letter-selection">
-            ${'<div class="letter-tile"></div>'.repeat(9)}
-        </div>`.trim();
+        `.trim();
     }
 
     render () {
         this.innerHTML = this.template();
 
         const letterTiltes = [...this.board.querySelectorAll('.letter-tile')]
-
-        this.querySelector('.consonant-count').innerText = this.app.game.consonants.length;
-        this.querySelector('.vowel-count').innerText = this.app.game.vowels.length;
 
         const boardValues = [...this.app.game.boardLetters, ...Array(9 - this.app.game.boardLetters.length).fill('')];
 

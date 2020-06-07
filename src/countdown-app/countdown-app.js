@@ -33,9 +33,16 @@ export class CountdownApp extends HTMLElement {
                 </button>
             </div>
         </div>
-        <letter-board></letter-board>
-        <number-board></number-board>
-        <conundrum-board></conundrum-board>
+        <board-drawer>
+            <letter-board></letter-board>
+            <number-board></number-board>
+            <conundrum-board></conundrum-board>
+            <div class="board-selection">
+                <button value="letters">Letters</button>
+                <button value="numbers">Numbers</button>
+                <button value="conundrum">Conundrum</button>
+            </div>
+        </board-drawer>
         <modal-welcome></modal-welcome>
         <modal-new-game></modal-new-game>
         <modal-number-solution></modal-number-solution>`

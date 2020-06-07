@@ -1,0 +1,23 @@
+board-drawer {
+    border: 1px solid darken(#0666ae, 10%);
+    border-bottom: 0;
+    position: fixed;
+    border-radius: 10px 10px 0 0;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0666ae;
+    color: white;
+
+    // &:before {
+    //     position: relative;
+    //     content: '';
+    //     display: block;
+    //     width: 100px;
+    //     height: 4px;
+    //     margin: 10px auto;
+    //     border-radius: 2px;
+    //     background-color: darken(#0666ae, 10%);
+    // }
+}

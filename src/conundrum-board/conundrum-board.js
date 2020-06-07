@@ -33,6 +33,14 @@ export class ConundrumBoard extends HTMLElement {
 
     template = () => {
         return `
+        <div class="board">
+            <div class="conundrum-board">
+                ${'<div class="letter-tile"></div>'.repeat(this.boardLength)}
+            </div>
+            <div class="answer-board">
+                ${'<div class="letter-tile"></div>'.repeat(this.boardLength)}
+            </div>
+        </div>
         <div class="board-controls">
             <div class="controls">
                 <button class="button is-rounded is-small" value="clear">Clear Board</button>
@@ -40,19 +48,6 @@ export class ConundrumBoard extends HTMLElement {
                     <button class="button is-rounded is-small" value="new">New Conundrum</button>
                     <button class="button is-rounded is-small" value="reveal">Reveal</button>
                 </div>
-            </div>
-            <div class="board-selection">
-                <button value="letters">Letters</button>
-                <button value="numbers">Numbers</button>
-                <button value="conundrum">Conundrum</button>
-            </div>
-        </div>
-        <div class="board">
-            <div class="conundrum-board">
-                ${'<div class="letter-tile"></div>'.repeat(this.boardLength)}
-            </div>
-            <div class="answer-board">
-                ${'<div class="letter-tile"></div>'.repeat(this.boardLength)}
             </div>
         </div>`.trim();
     }
