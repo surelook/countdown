@@ -19,7 +19,7 @@ export class CountdownApp extends HTMLElement {
 
     template = () => {
         return `
-        <video src="./videos/countdown-clock.mp4" preload="auto" poster="./images/countdown-clock-placeholder.jpg"></video>
+        <video src="./videos/countdown-clock.mp4" preload="auto" poster="./images/countdown-clock-placeholder.jpg" playsinline></video>
         <div class="game-controls">
             <div class="controls">
                 <button class="button is-rounded is-small" value="new">New Game</button>
