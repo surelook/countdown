@@ -68,6 +68,10 @@ video {
 
   button {
     margin: 0 0.5em 0.5em 0;
+
+    span {
+      pointer-events: none;
+    }
     
     i {
       pointer-events: none;
