@@ -32,7 +32,7 @@ export class ModalWelcome extends HTMLElement {
                     <div class="card">
                         <div class="card-content">
                             <div class="content">
-                                <h4>Welcome to Countdown &mdash; nothing to do with the Channel 4 series yet, coincidentally, a game of letters, numbers and conundrums.</h4>
+                                <h4>Welcome to Countdown &mdash; nothing to do with the Channel 4 series, yet coincidentally, a game of letters, numbers and conundrums.</h4>
                                 You may choose to play using conundrums from either the <em>Classic</em> series of Countdown, or from the popular spin-off series <em>8 Out of 10 Cats Does Countdown</em>. Again, just a coincidence.
                             </div>
                         </div>
