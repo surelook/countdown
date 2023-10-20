@@ -161,3 +161,10 @@ video {
 .modal-content {
   border-radius: 5px;
 }
+
+// hide scrollbars
+::-webkit-scrollbar-track, ::-webkit-scrollbar, ::-webkit-scrollbar-thumb  {
+  border: 0px;
+  width: 0px;
+  padding: 0px;
+}
