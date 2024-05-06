@@ -31,6 +31,8 @@ html {
   font-family: $font-family;
   max-width: $page-width;
   margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: hidden;
   text-align: center;
 }
 
@@ -160,8 +162,4 @@ video {
 
 .modal-content {
   border-radius: 5px;
-}
-
-html{
-  overflow: hidden;
 }
