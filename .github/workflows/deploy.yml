@@ -9,6 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
+
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -30,4 +33,3 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages
         FOLDER: dist
-        GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
