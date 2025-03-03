@@ -1,1 +1,192 @@
-@font-face{font-family:Roboto;src:url(fonts/Roboto-Regular.ttf)}conundrum-board{position:fixed;display:none;bottom:0;left:0;width:100vw}conundrum-board .controls{position:relative}conundrum-board .answer-board,conundrum-board .conundrum-board{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));grid-gap:1vw;background:#4784b6;padding:1vw}conundrum-board .answer-board{display:none}conundrum-board[state=reveal] .answer-board{display:grid}conundrum-board input{border:none;caret-color:transparent;-webkit-box-shadow:inset 0 5px 10px rgba(0,0,0,.2);box-shadow:inset 0 5px 10px rgba(0,0,0,.2);height:10vw;background-color:#458ac8;color:#fff;font-size:10vw;font-weight:700;text-transform:uppercase;text-align:center;outline:none;cursor:default}conundrum-board input:valid{background-color:#1b4a90}letter-board{position:fixed;display:none;bottom:0;left:0;width:100vw}letter-board .controls{position:relative}letter-board .letter-selection{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));grid-gap:1vw;background:#4784b6;padding:1vw}letter-board input{border:none;caret-color:transparent;-webkit-box-shadow:inset 0 5px 10px rgba(0,0,0,.2);box-shadow:inset 0 5px 10px rgba(0,0,0,.2);height:10vw;background-color:#458ac8;color:#fff;font-size:10vw;font-weight:700;text-transform:uppercase;text-align:center;outline:none;cursor:default}letter-board input:valid{background-color:#1b4a90}number-board{position:fixed;bottom:0;left:0;width:100vw;display:none}number-board .controls{position:relative}number-board .board{padding:1vw;background-color:#0666ae}number-board .target{border:1vw solid #2776a9;margin:0 auto;caret-color:transparent;-webkit-box-shadow:inset 0 5px 10px rgba(0,0,0,.2);box-shadow:inset 0 5px 10px rgba(0,0,0,.2);height:10vw;font-weight:900;width:3.2ch;background-color:#1b4a90;color:#fff;font-size:10vw;font-weight:700;text-transform:uppercase;text-align:center;outline:none;cursor:default;text-align:right;padding:0 3vw}number-board .number-selection{display:grid;grid-template-columns:repeat(6,minmax(0,10vw));grid-gap:1vw;margin-top:1vw;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}number-board .number-selection input{border:none;caret-color:transparent;-webkit-box-shadow:inset 0 5px 10px rgba(0,0,0,.2);box-shadow:inset 0 5px 10px rgba(0,0,0,.2);height:10vw;background-color:#458ac8;color:#fff;font-size:5.5vw;font-weight:700;text-transform:uppercase;text-align:center;outline:none;cursor:default}number-board .number-selection input:valid{background-color:#1b4a90}countdown-app[state=conundrum] conundrum-board,countdown-app[state=letters] letter-board,countdown-app[state=numbers] number-board{display:block}html{font-size:1rem;font-family:Roboto,sans-serif;max-width:800px;margin:0 auto;text-align:center}p{font-size:1.6rem}body{margin:0}video{display:block;width:100vw;height:100vh;-o-object-fit:cover;object-fit:cover;-o-object-position:top;object-position:top}.controls,video{position:fixed;left:0}.controls{text-align:left;margin:.5em 0 0 .5em}button{background-color:transparent;border:1px solid #fff;background-color:#000;color:#fff;border-radius:.5em;cursor:pointer;outline:none;margin:0 .5em .5em 0}button:hover{background-color:#fff;color:#000}
+@font-face {
+    font-family: Roboto;
+    src: url(fonts/Roboto-Regular.ttf);
+}
+conundrum-board {
+    position: fixed;
+    display: none;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+}
+conundrum-board .controls {
+    position: relative;
+}
+conundrum-board .answer-board,
+conundrum-board .conundrum-board {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-gap: 1vw;
+    background: #4784b6;
+    padding: 1vw;
+}
+conundrum-board .answer-board {
+    display: none;
+}
+conundrum-board[state="reveal"] .answer-board {
+    display: grid;
+}
+conundrum-board input {
+    border: none;
+    caret-color: transparent;
+    -webkit-box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
+    height: 10vw;
+    background-color: #458ac8;
+    color: #fff;
+    font-size: 10vw;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    outline: none;
+    cursor: default;
+}
+conundrum-board input:valid {
+    background-color: #1b4a90;
+}
+letter-board {
+    position: fixed;
+    display: none;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+}
+letter-board .controls {
+    position: relative;
+}
+letter-board .letter-selection {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+    grid-gap: 1vw;
+    background: #4784b6;
+    padding: 1vw;
+}
+letter-board input {
+    border: none;
+    caret-color: transparent;
+    -webkit-box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
+    height: 10vw;
+    background-color: #458ac8;
+    color: #fff;
+    font-size: 10vw;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    outline: none;
+    cursor: default;
+}
+letter-board input:valid {
+    background-color: #1b4a90;
+}
+number-board {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    display: none;
+}
+number-board .controls {
+    position: relative;
+}
+number-board .board {
+    padding: 1vw;
+    background-color: #0666ae;
+}
+number-board .target {
+    border: 1vw solid #2776a9;
+    margin: 0 auto;
+    caret-color: transparent;
+    -webkit-box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
+    height: 10vw;
+    font-weight: 900;
+    width: 3.2ch;
+    background-color: #1b4a90;
+    color: #fff;
+    font-size: 10vw;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    outline: none;
+    cursor: default;
+    text-align: right;
+    padding: 0 3vw;
+}
+number-board .number-selection {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 10vw));
+    grid-gap: 1vw;
+    margin-top: 1vw;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+number-board .number-selection input {
+    border: none;
+    caret-color: transparent;
+    -webkit-box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
+    height: 10vw;
+    background-color: #458ac8;
+    color: #fff;
+    font-size: 5.5vw;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    outline: none;
+    cursor: default;
+}
+number-board .number-selection input:valid {
+    background-color: #1b4a90;
+}
+countdown-app[state="conundrum"] conundrum-board,
+countdown-app[state="letters"] letter-board,
+countdown-app[state="numbers"] number-board {
+    display: block;
+}
+html {
+    font-size: 1rem;
+    font-family: Roboto, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+p {
+    font-size: 1.6rem;
+}
+body {
+    margin: 0;
+}
+video {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: top;
+    object-position: top;
+}
+.controls,
+video {
+    position: fixed;
+    left: 0;
+}
+.controls {
+    text-align: left;
+    margin: 0.5em 0 0 0.5em;
+}
+button {
+    background-color: transparent;
+    border: 1px solid #fff;
+    background-color: #000;
+    color: #fff;
+    border-radius: 0.5em;
+    cursor: pointer;
+    outline: none;
+    margin: 0 0.5em 0.5em 0;
+}
+button:hover {
+    background-color: #fff;
+    color: #000;
+}
