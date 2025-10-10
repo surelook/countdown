@@ -252,4 +252,24 @@ export const CATS_CONUNDRUMS = [
         word: 'IWASHDONG',
         answer: 'SHADOWING'
     },
+    {
+        word: 'BUMHEADS',
+        answer: 'AMBUSHED',
+        clue: 'Taken by surprise.',
+    },
+    {
+        word: 'HUMPNICK',
+        answer: 'CHIPMUNK',
+        clue: 'A small, furry creature.',
+    },
+    {
+        word: 'MEGADICK',
+        answer: 'MAGICKED',
+        clue: 'Poof, now it\'s gone.',
+    },
+    {
+        word: 'SITONSEAN',
+        answer: 'SENSATION',
+        clue: 'Poof, now it\'s gone.',
+    },
 ];
