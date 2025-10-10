@@ -201,5 +201,55 @@ export const CATS_CONUNDRUMS = [
     {
         word: 'IRISHTART',
         answer: 'ARTHRITIS'
-    }
+    },
+    {
+        word: 'PACEANUS',
+        clue: "Heat it from the bottom.",
+        answer: 'SAUCEPAN'
+    },
+    {
+        word: 'PORKSAWED',
+        answer: 'SPADEWORK'
+    },
+    {
+        word: 'RANDYBUSH',
+        answer: 'HUSBANDRY'
+    },
+    {
+        word: 'TWATCHOPS',
+        answer: 'STOPWATCH'
+    },
+    {
+        word: 'PEEPATIT',
+        answer: 'APPETITE',
+        clue: "Craving something."
+    },
+    {
+        word: 'YERRCOCK',
+        answer: 'CROCKERY',
+        clue: "You need to give this a good wash after use."
+    },
+    {
+        word: 'ACNEGROIN',
+        answer: 'IGNORANCE'
+    },
+    {
+        word: 'HARDSEMI',
+        answer: 'MISHEARD',
+        clue: 'Not always easy to grasp.'
+    },
+    {
+        word: 'LUBETITS',
+        answer: 'SUBTITLE',
+        clue: 'Making things easier.'
+    },
+    {
+        word: 'ARSEPROD',
+        answer: 'EARDROPS',
+        clue: 'Pop it in a hole.'
+    },
+    {
+        word: 'IWASHDONG',
+        answer: 'SHADOWING'
+    },
 ];
