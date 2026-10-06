@@ -85,6 +85,10 @@ export class CountdownApp extends HTMLElement {
         })
 
         this.render()
+
+        this.video.addEventListener('ended', () => {
+            this.countingState = 'paused';
+        });
     }
 
     get game () {
