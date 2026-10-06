@@ -1,7 +1,6 @@
 import { Storage } from '../storage';
 import { CONSONANTS } from '../data/consonants';
-import { CLASSIC_CONUNDRUMS } from '../data/classic-conundrums';
-import { CATS_CONUNDRUMS } from '../data/cats-conundrums';
+import { loadConundrums } from '../data/conundrums';
 import { VOWELS } from '../data/vowels';
 import { LARGE, SMALL } from '../data/numbers';
 import { shuffleArray } from '../utils';
@@ -130,14 +129,26 @@ export class CountdownApp extends HTMLElement {
     }
 
     loadGame () {
-        this.board = this.game.board;
+        const game = this.game;
+
+        // Saves from before conundrums were loaded on demand hold the whole shuffled list.
+        if (game.conundrums) {
+            game.conundrumSet = game.conundrums.some(conundrum => conundrum.type) ? 'cats' : 'classic';
+            game.usedConundrums = [];
+            delete game.conundrums;
+            this.game = game;
+        }
+
+        loadConundrums(game.conundrumSet);
+        this.board = game.board;
         this.dispatchEvent(new Event(EVENTS.GAME_LOADED));
     }
 
     createNewGame (isCats = false) {
         this.game = {
             consonants: shuffleArray(shuffleArray(shuffleArray(shuffleArray(CONSONANTS)))),
-            conundrums: shuffleArray(isCats ? CATS_CONUNDRUMS : CLASSIC_CONUNDRUMS),
+            conundrumSet: isCats ? 'cats' : 'classic',
+            usedConundrums: [],
             vowels: shuffleArray(VOWELS),
             boardLetters: [],
             board: 'letters',
@@ -147,6 +158,8 @@ export class CountdownApp extends HTMLElement {
             target: 0,
             boardConundrum: null
         }
+
+        loadConundrums(this.game.conundrumSet);
 
         this.dispatchEvent(new CustomEvent(EVENTS.NEW_GAME_CREATED, {
             bubbles: true,

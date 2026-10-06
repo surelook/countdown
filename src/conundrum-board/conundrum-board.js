@@ -1,4 +1,5 @@
 import { EVENTS } from '../countdown-app/countdown-app';
+import { loadConundrums } from '../data/conundrums';
 
 export class ConundrumBoard extends HTMLElement {
     connectedCallback() {
@@ -85,10 +86,15 @@ export class ConundrumBoard extends HTMLElement {
         return this.app.game.boardConundrum.word.length;
     }
 
-    getNewConundrum () {
+    async getNewConundrum () {
+        const conundrums = await loadConundrums(this.app.game.conundrumSet);
         const game = this.app.game;
-        if (game.conundrums.length < 1) return ;
-        game.boardConundrum = game.conundrums.pop();
+        const used = new Set(game.usedConundrums);
+        const unused = [...conundrums.keys()].filter(index => !used.has(index));
+        if (unused.length < 1) return;
+        const index = unused[Math.floor(Math.random() * unused.length)];
+        game.usedConundrums.push(index);
+        game.boardConundrum = conundrums[index];
         this.app.game = game;
         this.render();
     }
