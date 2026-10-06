@@ -1,26 +1,28 @@
-@use 'ui';
-@use 'variables' as *;
-@use '../conundrum-board/conundrum-board';
-@use '../letter-board/letter-board';
-@use '../number-board/number-board';
-@use '../countdown-app/countdown-app';
-@use '../modal/modal-number-solution';
+@import './ui.css';
+@import '../conundrum-board/conundrum-board.css';
+@import '../letter-board/letter-board.css';
+@import '../number-board/number-board.css';
+@import '../countdown-app/countdown-app.css';
+@import '../modal/modal-number-solution.css';
+
+:root {
+  --board-font: 'Futura Bold', sans-serif;
+}
 
 @font-face {
   font-family: 'Futura Bold';
   src: url('../fonts/FuturaURWExtraBold.woff2') format('woff2');
 }
 
-// Subset to ASCII plus × and ÷; the full font is 3MB of Hangul.
+/* Subset to ASCII plus × and ÷; the full font is 3MB of Hangul. */
 @font-face {
   font-family: 'Nanum Pen Script';
   src: url('../fonts/NanumPenScript-Regular.woff2') format('woff2');
 }
 
 html {
-  font-size: $root-font-size;
-  font-family: $font-family;
-  max-width: $page-width;
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  max-width: 800px;
   margin: 0 auto;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -37,7 +39,7 @@ em {
 }
 
 p {
-  font-size: $paragraph-font-size;
+  font-size: 1.6rem;
 }
 
 body {
@@ -107,7 +109,7 @@ video {
   button {
     background-color: #1b4a90;
     cursor: pointer;
-    font-family: $board-font-family;
+    font-family: var(--board-font);
     outline: none;
     border: none;
     color: white;
@@ -160,8 +162,4 @@ video {
 
 .modal-content {
   border-radius: 5px;
-}
-
-.card-footer-item:hover {
-  color: #363636;
 }

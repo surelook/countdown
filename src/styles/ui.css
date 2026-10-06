@@ -1,8 +1,9 @@
-$text: #404654;
-$text-strong: #2e333d;
-$link: #205bbb;
-$border: #d6d9e0;
-$border-light: #ebecf0;
+:root {
+  --text-strong: #2e333d;
+  --link: #205bbb;
+  --border: #d6d9e0;
+  --border-light: #ebecf0;
+}
 
 .button {
   display: inline-flex;
@@ -11,11 +12,11 @@ $border-light: #ebecf0;
   vertical-align: top;
   height: 2.5em;
   padding: calc(0.5em - 1px) calc(1.25em - 1px);
-  border: 1px solid $border;
+  border: 1px solid var(--border);
   border-radius: 9999px;
   background-color: white;
   box-shadow: 0 0.75px 1.5px rgba(51, 51, 51, 0.05), 0 1.5px 3px rgba(51, 51, 51, 0.05);
-  color: $text-strong;
+  color: var(--text-strong);
   font-family: inherit;
   font-size: 0.75rem;
   font-weight: 500;
@@ -78,7 +79,7 @@ $border-light: #ebecf0;
 .card-footer {
   display: flex;
   align-items: stretch;
-  border-top: 1px solid $border-light;
+  border-top: 1px solid var(--border-light);
 }
 
 .card-footer-item {
@@ -87,12 +88,12 @@ $border-light: #ebecf0;
   align-items: center;
   justify-content: center;
   padding: 0.75rem;
-  color: $link;
+  color: var(--link);
   text-decoration: none;
   transition: color 0.3s;
 
   &:not(:last-child) {
-    border-right: 1px solid $border-light;
+    border-right: 1px solid var(--border-light);
   }
 
   &:hover {
@@ -102,7 +103,7 @@ $border-light: #ebecf0;
 
 .content h4 {
   margin: 0 0 0.8em;
-  color: $text-strong;
+  color: var(--text-strong);
   font-size: 1.25em;
   font-weight: 800;
   line-height: 1.125;

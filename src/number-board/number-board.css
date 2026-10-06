@@ -1,5 +1,3 @@
-@use '../styles/variables' as *;
-
 number-board {
     position: fixed;
     bottom: 0;
@@ -17,7 +15,7 @@ number-board {
     }
 
     .target {
-        font-family: $board-font-family;
+        font-family: var(--board-font);
         display: flex;
         align-items: center;
         justify-content: flex-end;
@@ -44,7 +42,7 @@ number-board {
         justify-content: center;
 
         .number-tile {
-            font-family: $board-font-family;
+            font-family: var(--board-font);
             display: flex;
             align-items: center;
             justify-content: center;

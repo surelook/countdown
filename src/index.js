@@ -1,4 +1,4 @@
-import './styles/index.scss'
+import './styles/index.css'
 import { CountdownApp } from './countdown-app/countdown-app'
 import { ConundrumBoard } from './conundrum-board/conundrum-board'
 import { LetterBoard } from './letter-board/letter-board'
