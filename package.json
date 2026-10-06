@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "@analytics/google-analytics": "^1.1.0",
-    "analytics": "^0.8.19",
-    "bulma": "^1.0.4"
+    "analytics": "^0.8.19"
   }
 }

@@ -1,0 +1,109 @@
+$text: #404654;
+$text-strong: #2e333d;
+$link: #205bbb;
+$border: #d6d9e0;
+$border-light: #ebecf0;
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: top;
+  height: 2.5em;
+  padding: calc(0.5em - 1px) calc(1.25em - 1px);
+  border: 1px solid $border;
+  border-radius: 9999px;
+  background-color: white;
+  box-shadow: 0 0.75px 1.5px rgba(51, 51, 51, 0.05), 0 1.5px 3px rgba(51, 51, 51, 0.05);
+  color: $text-strong;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: border-color 0.3s;
+
+  &:hover {
+    border-color: #b5bac5;
+  }
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  &.is-active {
+    display: flex;
+  }
+}
+
+.modal-background {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(9, 10, 12, 0.86);
+}
+
+.modal-content {
+  position: relative;
+  width: 100%;
+  max-height: calc(100vh - 160px);
+  margin: 0 20px;
+  overflow: auto;
+
+  @media screen and (min-width: 769px) {
+    width: 640px;
+    max-height: calc(100vh - 40px);
+    margin: 0 auto;
+  }
+}
+
+.card {
+  position: relative;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 8px 16px -2px rgba(9, 10, 12, 0.1), 0 0 0 1px rgba(9, 10, 12, 0.02);
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-footer {
+  display: flex;
+  align-items: stretch;
+  border-top: 1px solid $border-light;
+}
+
+.card-footer-item {
+  display: flex;
+  flex: 1 0 0;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  color: $link;
+  text-decoration: none;
+  transition: color 0.3s;
+
+  &:not(:last-child) {
+    border-right: 1px solid $border-light;
+  }
+
+  &:hover {
+    color: #363636;
+  }
+}
+
+.content h4 {
+  margin: 0 0 0.8em;
+  color: $text-strong;
+  font-size: 1.25em;
+  font-weight: 800;
+  line-height: 1.125;
+}

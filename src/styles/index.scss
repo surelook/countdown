@@ -1,24 +1,10 @@
-// Bulma 0.8's link blue; 1.x defaults to a much brighter indigo.
-@use 'bulma/sass/utilities' with ($link: #3273dc);
-@use 'bulma/sass/base/minireset';
-@use 'bulma/sass/base/generic';
-@use 'bulma/sass/elements/button';
-@use 'bulma/sass/elements/content';
-@use 'bulma/sass/components/card';
-@use 'bulma/sass/components/modal';
-@use 'bulma/sass/themes/light';
-@use 'bulma/sass/themes/setup';
+@use 'ui';
 @use 'variables' as *;
 @use '../conundrum-board/conundrum-board';
 @use '../letter-board/letter-board';
 @use '../number-board/number-board';
 @use '../countdown-app/countdown-app';
 @use '../modal/modal-number-solution';
-
-:root {
-  @include light.light-theme;
-  @include setup.setup-theme;
-}
 
 @font-face {
   font-family: 'Futura Bold';
@@ -39,6 +25,7 @@ html {
   overflow-x: hidden;
   overflow-y: hidden;
   text-align: center;
+  -webkit-font-smoothing: antialiased;
 }
 
 * { 
@@ -55,6 +42,8 @@ p {
 
 body {
   margin: 0;
+  color: #404654;
+  line-height: 1.5;
 }
 
 video {
