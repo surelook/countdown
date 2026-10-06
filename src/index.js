@@ -1,5 +1,5 @@
-import Clock from './videos/countdown-clock.mp4'
-import Poster from './images/countdown-clock-placeholder.jpg'
+import '@fortawesome/fontawesome-free/css/fontawesome.min.css'
+import '@fortawesome/fontawesome-free/css/solid.min.css'
 import './styles/index.scss'
 import { CountdownApp } from './countdown-app/countdown-app'
 import { ConundrumBoard } from './conundrum-board/conundrum-board'

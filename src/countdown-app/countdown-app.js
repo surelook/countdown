@@ -5,6 +5,8 @@ import { CATS_CONUNDRUMS } from '../data/cats-conundrums';
 import { VOWELS } from '../data/vowels';
 import { LARGE, SMALL } from '../data/numbers';
 import { shuffleArray } from '../utils';
+import clockVideo from '../videos/countdown-clock.mp4';
+import clockPoster from '../images/countdown-clock-placeholder.jpg';
 
 export const EVENTS = {
     NEW_GAME_CREATED: 'new-game-created',
@@ -19,7 +21,7 @@ export class CountdownApp extends HTMLElement {
 
     template = () => {
         return `
-        <video src="./videos/countdown-clock.mp4" preload="auto" poster="./images/countdown-clock-placeholder.jpg" playsinline></video>
+        <video src="${clockVideo}" preload="auto" poster="${clockPoster}" playsinline></video>
         <div class="game-controls">
             <div class="controls">
                 <button class="button is-rounded is-small" value="new">New Game</button>
