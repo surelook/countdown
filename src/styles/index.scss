@@ -1,16 +1,12 @@
 @font-face {
-  font-family: 'Roboto';
-  src: url(../fonts/Roboto-Regular.ttf);
-}
-
-@font-face {
   font-family: 'Futura Bold';
-  src: url('../fonts/Futura URW Extra Bold.ttf');
+  src: url('../fonts/FuturaURWExtraBold.woff2') format('woff2');
 }
 
+// Subset to ASCII plus × and ÷; the full font is 3MB of Hangul.
 @font-face {
   font-family: 'Nanum Pen Script';
-  src: url('../fonts/NanumPenScript-Regular.ttf');
+  src: url('../fonts/NanumPenScript-Regular.woff2') format('woff2');
 }
 
 $fa-font-path: '~@fortawesome/fontawesome-free/webfonts'; 
