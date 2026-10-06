@@ -52,7 +52,7 @@ export class ModalNewGame extends HTMLElement {
                             </div>
                         </div>
                         <footer class="card-footer">
-                        <a href="#" data-action="dismiss" class="card-footer-item">Countinue Current Game</a>
+                        <a href="#" data-action="dismiss" class="card-footer-item">Continue Current Game</a>
                             <a href="#" data-action="playClassicCountdown" class="card-footer-item">Play Classic Countdown</a>
                             <a href="#" data-action="playCatsCountdown" class="card-footer-item">Play Cats Countdown</a>
                         </footer>
