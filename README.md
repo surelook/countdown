@@ -43,6 +43,7 @@ Pushing to `master` builds the site and deploys it to GitHub Pages.
 ## Credits
 
 - The numbers solver is a JavaScript port of [cntdn](https://github.com/jes/cntdn) by James Stanley. Thank you, James!
+- The conundrums come from the episode records on [The Countdown Wiki](https://wiki.apterous.org/). Thank you to everyone who keeps it going!
 - The icons are from [Material Icons](https://fonts.google.com/icons) (Apache 2.0).
 - Thanks to everyone who has added conundrums or fixed things along the way.
 
