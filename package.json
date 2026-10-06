@@ -17,7 +17,6 @@
   },
   "dependencies": {
     "@analytics/google-analytics": "^1.1.0",
-    "@fortawesome/fontawesome-free": "^7.3.1",
     "analytics": "^0.8.19",
     "bulma": "^1.0.4"
   }

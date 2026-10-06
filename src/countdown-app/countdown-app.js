@@ -25,12 +25,12 @@ export class CountdownApp extends HTMLElement {
         <div class="game-controls">
             <div class="controls">
                 <button class="button is-rounded is-small" value="new">New Game</button>
-                <button class="button is-rounded is-small" value="play"><i class="fas fa-play"></i> Start Clock</button>
-                <button class="button is-rounded is-small" value="pause"><i class="fas fa-pause"></i> Pause Clock</button>
-                <button class="button is-rounded is-small" value="reset"><i class="fas fa-history"></i> Reset Clock</button>
+                <button class="button is-rounded is-small" value="play"><svg class="button-icon icon-play"><use href="#icon-play"></use></svg> Start Clock</button>
+                <button class="button is-rounded is-small" value="pause"><svg class="button-icon icon-pause"><use href="#icon-pause"></use></svg> Pause Clock</button>
+                <button class="button is-rounded is-small" value="reset"><svg class="button-icon icon-reset"><use href="#icon-reset"></use></svg> Reset Clock</button>
                 <button class="button is-rounded is-small fullscreen-button" value="fullscreen">
-                    <i class="fas fa-expand"></i>
-                    <i class="fas fa-compress"></i>
+                    <svg class="button-icon icon-expand"><use href="#icon-expand"></use></svg>
+                    <svg class="button-icon icon-compress"><use href="#icon-compress"></use></svg>
                     Fullscreen
                 </button>
             </div>

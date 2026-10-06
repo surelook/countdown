@@ -80,15 +80,19 @@ video {
       pointer-events: none;
     }
     
-    i {
+    .button-icon {
       pointer-events: none;
+      width: 1em;
+      height: 1em;
       margin-right: 0.5em;
+      fill: currentColor;
+      vertical-align: -0.125em;
     }
 
     &.fullscreen-button {
       margin-left: auto;
     
-      .fa-compress {
+      .icon-compress {
         display: none;
     
         :fullscreen & {
@@ -96,7 +100,7 @@ video {
         }
       }
     
-      .fa-expand {
+      .icon-expand {
         :fullscreen & {
           display: none;
         }
