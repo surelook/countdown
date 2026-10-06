@@ -98,7 +98,7 @@ export class NumberBoard extends HTMLElement {
         let count = 100;
 
         const setNumber = () => {
-            this.target = Math.floor(Math.random()*(999-100+1)+100);
+            this.target = Math.floor(Math.random()*(999-101+1)+101);
             count--;
 
             if (count < 1) {
