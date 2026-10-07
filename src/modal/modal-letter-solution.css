@@ -1,0 +1,34 @@
+modal-letter-solution {
+    .solution-tiles {
+        display: flex;
+        justify-content: center;
+        gap: 0.4rem;
+        padding: 0.5rem;
+        background: #4784b6;
+
+        span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: min(3.2rem, 8vw);
+            height: min(3.2rem, 8vw);
+            background-color: #1b4a90;
+            box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
+            color: white;
+            font-family: var(--board-font);
+            font-size: min(2.2rem, 5.5vw);
+            text-transform: uppercase;
+        }
+    }
+
+    .also {
+        margin-top: 1em;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        font-size: 0.85em;
+    }
+
+    .no-words {
+        font-size: 1.2em;
+    }
+}

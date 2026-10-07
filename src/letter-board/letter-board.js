@@ -1,4 +1,6 @@
 import { EVENTS } from '../countdown-app/countdown-app'
+import { loadWords } from '../data/words'
+import { longestWords } from './longest-words'
 
 export class LetterBoard extends HTMLElement {
     connectedCallback() {
@@ -13,6 +15,10 @@ export class LetterBoard extends HTMLElement {
 
             if (event.target.matches('[value="vowel"]')) {
                 this.takeVowel();
+            }
+
+            if (event.target.matches('[value="solve"]')) {
+                this.solve();
             }
         })
 
@@ -36,6 +42,7 @@ export class LetterBoard extends HTMLElement {
                 <div>
                     <button class="button is-rounded is-small" value="consonant">Consonant [<span class="consonant-count"></span>]</button>
                     <button class="button is-rounded is-small" value="vowel">Vowel [<span class="vowel-count"></span>]</button>
+                    ${this.boardFull ? `<button class="button is-rounded is-small" value="solve">Dictionary Corner</button>` : ``}
                 </div>
             </div>
             <div class="board-selection">
@@ -49,8 +56,15 @@ export class LetterBoard extends HTMLElement {
         </div>`.trim();
     }
 
+    get boardFull () {
+        return this.app.game.boardLetters.length > 8;
+    }
+
     render () {
         this.innerHTML = this.template();
+
+        // Fetch the word list while the clock runs so the solution appears instantly.
+        if (this.boardFull) loadWords(this.app.game.conundrumSet);
 
         const letterTiltes = [...this.board.querySelectorAll('.letter-tile')]
 
@@ -80,6 +94,12 @@ export class LetterBoard extends HTMLElement {
         game.boardLetters.push(vowel)
         this.app.game = game;
         this.render();
+    }
+
+    async solve () {
+        const words = await loadWords(this.app.game.conundrumSet);
+        document.querySelector('modal-letter-solution')
+            .setSolution(longestWords(words, this.app.game.boardLetters.join('')));
     }
 
     reset () {

@@ -16,7 +16,7 @@ The game is saved in your browser, so a refresh won't lose it. **New Game** resh
 
 ### Letters
 
-Players take turns calling for a **Consonant** or a **Vowel** until all nine tiles are filled. Then press **Start Clock**, and you have 30 seconds to find the longest word.
+Players take turns calling for a **Consonant** or a **Vowel** until all nine tiles are filled. Then press **Start Clock**, and you have 30 seconds to find the longest word. When time's up, **Dictionary Corner** reveals the best you could have had. Cats games allow the rude ones.
 
 ### Numbers
 
@@ -43,7 +43,8 @@ Pushing to `master` builds the site and deploys it to GitHub Pages.
 ## Credits
 
 - The numbers solver is a JavaScript port of [cntdn](https://github.com/jes/cntdn) by James Stanley. Thank you, James!
-- The conundrums come from the episode records on [The Countdown Wiki](https://wiki.apterous.org/). Thank you to everyone who keeps it going!
+- The conundrums, and the show's rulings that keep Dictionary Corner honest, come from the episode records on [The Countdown Wiki](https://wiki.apterous.org/). Thank you to everyone who keeps it going!
+- Dictionary Corner's words are built on [SCOWL](https://github.com/en-wl/wordlist) by Kevin Atkinson, with rude words sorted using [LDNOOBW](https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words).
 - The icons are from [Material Icons](https://fonts.google.com/icons) (Apache 2.0).
 - Thanks to everyone who has added conundrums or fixed things along the way.
 

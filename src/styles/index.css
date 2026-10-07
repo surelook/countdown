@@ -3,6 +3,7 @@
 @import '../letter-board/letter-board.css';
 @import '../number-board/number-board.css';
 @import '../countdown-app/countdown-app.css';
+@import '../modal/modal-letter-solution.css';
 @import '../modal/modal-number-solution.css';
 
 :root {
