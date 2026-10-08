@@ -40,8 +40,8 @@ export class LetterBoard extends HTMLElement {
             <div class="controls">
                 <button class="button is-rounded is-small" value="clear">Clear Board</button>
                 <div>
-                    <button class="button is-rounded is-small" value="consonant">Consonant [<span class="consonant-count"></span>]</button>
-                    <button class="button is-rounded is-small" value="vowel">Vowel [<span class="vowel-count"></span>]</button>
+                    <button class="button is-rounded is-small" value="consonant">Consonant <span class="count consonant-count"></span></button>
+                    <button class="button is-rounded is-small" value="vowel">Vowel <span class="count vowel-count"></span></button>
                     ${this.boardFull ? `<button class="button is-rounded is-small" value="solve">Dictionary Corner</button>` : ``}
                 </div>
             </div>

@@ -1,0 +1,96 @@
+modal-shortcuts {
+    /* One inset and one key column everywhere, so keys and descriptions line up across sections. */
+    --inset: 1em;
+    --key-column: 5.4em;
+
+    /* Wide enough for three board columns with Backspace in each. */
+    .modal-content {
+        @media screen and (min-width: 769px) {
+            width: min(840px, calc(100vw - 40px));
+        }
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        text-align: left;
+
+        h4 {
+            margin: 0;
+        }
+    }
+
+    .tier {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6em;
+        padding: 0 var(--inset);
+
+        &.is-global {
+            padding: var(--inset);
+            border-radius: 10px;
+            background: var(--surface-sunken);
+        }
+    }
+
+    h5 {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.75em;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+    }
+
+    .shortcut-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 0.6em 1.5em;
+    }
+
+    .boards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        gap: 0.5em;
+    }
+
+    .board {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6em;
+        padding: calc(var(--inset) - 1px);
+        border: 1px solid var(--border-light);
+        border-radius: 10px;
+    }
+
+    .shortcut {
+        display: grid;
+        grid-template-columns: var(--key-column) 1fr;
+        column-gap: 0.75em;
+        align-items: baseline;
+        color: var(--text-strong);
+        font-size: 0.95em;
+    }
+
+    /* Right-aligned so short keys sit beside their description rather than adrift in the column. */
+    .keys {
+        display: flex;
+        justify-content: flex-end;
+        gap: 0.25em;
+    }
+
+    kbd {
+        min-width: 2em;
+        padding: 0.15em 0.5em;
+        border: 1px solid var(--kbd-border);
+        border-bottom-width: 2px;
+        border-radius: 5px;
+        background: var(--kbd-background);
+        color: var(--text-strong);
+        font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+        font-size: 0.8em;
+        font-weight: 600;
+        text-align: center;
+    }
+}

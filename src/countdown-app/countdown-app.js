@@ -4,6 +4,7 @@ import { loadConundrums } from '../data/conundrums';
 import { VOWELS } from '../data/vowels';
 import { LARGE, SMALL } from '../data/numbers';
 import { shuffleArray } from '../utils';
+import { SHORTCUTS } from '../shortcuts';
 import clockVideo from '../videos/countdown-clock.mp4';
 import clockPoster from '../images/countdown-clock-placeholder.jpg';
 
@@ -27,6 +28,7 @@ export class CountdownApp extends HTMLElement {
                 <button class="button is-rounded is-small" value="play"><svg class="button-icon icon-play"><use href="#icon-play"></use></svg> Start Clock</button>
                 <button class="button is-rounded is-small" value="pause"><svg class="button-icon icon-pause"><use href="#icon-pause"></use></svg> Pause Clock</button>
                 <button class="button is-rounded is-small" value="reset"><svg class="button-icon icon-reset"><use href="#icon-reset"></use></svg> Reset Clock</button>
+                <button class="button is-rounded is-small shortcuts-button" value="shortcuts"><svg class="button-icon"><use href="#icon-keyboard"></use></svg> Shortcuts</button>
                 <button class="button is-rounded is-small fullscreen-button" value="fullscreen">
                     <svg class="button-icon icon-expand"><use href="#icon-expand"></use></svg>
                     <svg class="button-icon icon-compress"><use href="#icon-compress"></use></svg>
@@ -40,7 +42,8 @@ export class CountdownApp extends HTMLElement {
         <modal-welcome></modal-welcome>
         <modal-new-game></modal-new-game>
         <modal-letter-solution></modal-letter-solution>
-        <modal-number-solution></modal-number-solution>`
+        <modal-number-solution></modal-number-solution>
+        <modal-shortcuts></modal-shortcuts>`
     }
 
     connectedCallback() {
@@ -49,6 +52,10 @@ export class CountdownApp extends HTMLElement {
         }
 
         this.addEventListener('click', (event) => {
+            // detail is 0 for keyboard and scripted clicks. A mouse click would otherwise leave focus
+            // behind for the next key press (a shortcut, or Esc on a modal) to paint a focus ring on.
+            if (event.detail > 0) event.target.closest('button')?.blur();
+
             if (event.target.matches('[value="new"]')) {
                 this.dispatchEvent(new Event(EVENTS.NEW_GAME_REQUESTED));
             }
@@ -73,6 +80,10 @@ export class CountdownApp extends HTMLElement {
                 document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
             } 
 
+            if (event.target.matches('[value="shortcuts"]')) {
+                this.querySelector('modal-shortcuts').toggle(true);
+            }
+
             if (event.target.matches('[value="letters"]')) {
                 this.board = 'letters';
             } 
@@ -86,11 +97,70 @@ export class CountdownApp extends HTMLElement {
             } 
         })
 
+        // Boards re-render their buttons on every change, so label them whenever the DOM changes.
+        new MutationObserver(this.labelShortcuts).observe(this, { childList: true, subtree: true });
+
+        document.addEventListener('keydown', this.onKeydown);
+
+        // A button focused by an earlier click would otherwise also press on Space's keyup.
+        document.addEventListener('keyup', (event) => {
+            if (event.key === ' ') event.preventDefault();
+        });
+
         this.render()
 
         this.video.addEventListener('ended', () => {
             this.countingState = 'paused';
         });
+    }
+
+    onKeydown = (event) => {
+        if (event.metaKey || event.ctrlKey || event.altKey) return;
+
+        const key = event.key === '?' ? '/' : event.key.length === 1 ? event.key.toLowerCase() : event.key;
+        const openModal = this.querySelector('.modal.is-active');
+
+        if (openModal) {
+            const isShortcuts = openModal.closest('modal-shortcuts');
+            if (key === 'Escape' || (isShortcuts && key === '/')) {
+                event.preventDefault();
+                openModal.querySelector('[data-action="dismiss"]')?.click();
+            }
+            if (key === 'f') {
+                event.preventDefault();
+                if (!event.repeat) this.querySelector('[value="fullscreen"]').click();
+            }
+            // Stops a focused button behind the modal pressing, while leaving the modal's own links usable.
+            if (key === 'Enter' && !openModal.contains(document.activeElement)) {
+                event.preventDefault();
+            }
+            return;
+        }
+
+        const targets = SHORTCUTS
+            .filter(shortcut => shortcut.key === key && shortcut.target)
+            .map(shortcut => shortcut.target);
+        if (!targets.length) return;
+
+        // Even with nothing to press, stop Enter/Space activating whichever button was last clicked.
+        event.preventDefault();
+        if (event.repeat) return;
+
+        [...this.querySelectorAll(targets.join(', '))]
+            // No rects means display: none here or on an ancestor. checkVisibility() would read better, but needs Safari 17.4.
+            .find(button => button.getClientRects().length)
+            ?.click();
+    }
+
+    labelShortcuts = () => {
+        for (const shortcut of SHORTCUTS) {
+            const ariaKey = shortcut.key === ' ' ? 'Space' : shortcut.key.length === 1 ? shortcut.key.toUpperCase() : shortcut.key;
+
+            this.querySelectorAll(shortcut.target).forEach(button => {
+                button.dataset.shortcut = shortcut.label;
+                button.setAttribute('aria-keyshortcuts', ariaKey);
+            });
+        }
     }
 
     get game () {

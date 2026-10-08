@@ -1,8 +1,23 @@
 :root {
+  --text: #404654;
   --text-strong: #2e333d;
+  --text-muted: #5b6270;
   --link: #205bbb;
+  --link-hover: #363636;
   --border: #d6d9e0;
   --border-light: #ebecf0;
+  --surface: white;
+  --surface-sunken: #f1f3f6;
+
+  --button-background: white;
+  --button-border: var(--border);
+  --button-border-hover: #b5bac5;
+  --button-text: var(--text-strong);
+  --button-count: #646b78;
+  --button-shadow: 0 0.75px 1.5px rgba(51, 51, 51, 0.05), 0 1.5px 3px rgba(51, 51, 51, 0.05);
+
+  --kbd-background: white;
+  --kbd-border: #c9ced8;
 }
 
 .button {
@@ -12,21 +27,33 @@
   vertical-align: top;
   height: 2.5em;
   padding: calc(0.5em - 1px) calc(1.25em - 1px);
-  border: 1px solid var(--border);
+  border: 1px solid var(--button-border);
   border-radius: 9999px;
-  background-color: white;
-  box-shadow: 0 0.75px 1.5px rgba(51, 51, 51, 0.05), 0 1.5px 3px rgba(51, 51, 51, 0.05);
-  color: var(--text-strong);
+  background-color: var(--button-background);
+  box-shadow: var(--button-shadow);
+  color: var(--button-text);
   font-family: inherit;
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-size: 0.875rem;
+  font-weight: 600;
   line-height: 1.5;
   white-space: nowrap;
   cursor: pointer;
   transition: border-color 0.3s;
 
   &:hover {
-    border-color: #b5bac5;
+    border-color: var(--button-border-hover);
+  }
+
+  &:focus-visible {
+    outline: 3px solid #ffc629;
+    outline-offset: 2px;
+  }
+
+  .count {
+    margin-left: 0.4em;
+    color: var(--button-count);
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
   }
 }
 
@@ -68,7 +95,7 @@
 .card {
   position: relative;
   border-radius: 12px;
-  background-color: white;
+  background-color: var(--surface);
   box-shadow: 0 8px 16px -2px rgba(9, 10, 12, 0.1), 0 0 0 1px rgba(9, 10, 12, 0.02);
 }
 
@@ -97,7 +124,7 @@
   }
 
   &:hover {
-    color: #363636;
+    color: var(--link-hover);
   }
 }
 

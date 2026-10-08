@@ -1,6 +1,6 @@
 modal-number-solution .card-content {
     --grid-line: rgba(0, 0, 0, 0.05);
-    background-color: #fff;
+    background-color: var(--surface);
     background-position: -1.5rem -1.5rem;
     background-repeat: no-repeat;
     background-size: calc(100% + 3rem) calc(100% + 3rem);

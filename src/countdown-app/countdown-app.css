@@ -29,13 +29,13 @@ countdown-app {
 
         button[value="pause"],
         button[value="reset"] {
-            display: initial;
+            display: inline-flex;
         }
     }
 
     &[counting-state="paused"] {
         button[value="reset"] {
-            display: initial;
+            display: inline-flex;
         }
     }
 }

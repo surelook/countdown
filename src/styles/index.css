@@ -5,6 +5,7 @@
 @import '../countdown-app/countdown-app.css';
 @import '../modal/modal-letter-solution.css';
 @import '../modal/modal-number-solution.css';
+@import '../modal/modal-shortcuts.css';
 
 :root {
   --board-font: 'Futura Bold', sans-serif;
@@ -45,7 +46,7 @@ p {
 
 body {
   margin: 0;
-  color: #404654;
+  color: var(--text);
   line-height: 1.5;
 }
 
@@ -81,9 +82,20 @@ video {
       vertical-align: -0.125em;
     }
 
-    &.fullscreen-button {
+    &.shortcuts-button {
       margin-left: auto;
-    
+
+      /* No keyboard to use them with. */
+      @media (hover: none) and (pointer: coarse) {
+        display: none;
+
+        & + .fullscreen-button {
+          margin-left: auto;
+        }
+      }
+    }
+
+    &.fullscreen-button {
       .icon-compress {
         display: none;
     
@@ -116,15 +128,15 @@ video {
     color: white;
     box-shadow: inset 0 -10px 10px -10px rgba(0, 0, 0, 0.5);
     align-self: flex-end;
-    padding: 0.5em 1em;
+    padding: 0.55em 1.2em;
     border-radius: 0.5em 0.5em 0 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 1rem;
+    font-size: 1.35rem;
     margin: 0;
     text-transform: uppercase;
 
     @media screen and (max-width: 640px) {
-      font-size: 0.7rem;
+      font-size: 0.85rem;
     }
 
     [board="letters"] &[value="letters"] {
@@ -140,6 +152,48 @@ video {
     [board="conundrum"] &[value="conundrum"] {
       background-color: #4784b6;
       box-shadow: none;
+    }
+  }
+}
+
+[data-shortcut] {
+  position: relative;
+
+  &::after {
+    content: attr(data-shortcut);
+    position: absolute;
+    bottom: calc(100% + 6px);
+    left: 50%;
+    z-index: 1;
+    padding: 0.3em 0.5em;
+    border-radius: 5px;
+    background: #2e333d;
+    color: white;
+    font: 600 0.8rem/1 ui-monospace, 'SF Mono', Menlo, monospace;
+    text-transform: none;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate(-50%, 3px);
+    transition: opacity 0.12s, transform 0.12s;
+  }
+
+  .game-controls &::after {
+    top: calc(100% + 6px);
+    bottom: auto;
+    transform: translate(-50%, -3px);
+  }
+
+  &:focus-visible::after {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  @media (hover: hover) {
+    &:hover::after {
+      opacity: 1;
+      transform: translate(-50%, 0);
+      transition-delay: 0.4s;
     }
   }
 }
