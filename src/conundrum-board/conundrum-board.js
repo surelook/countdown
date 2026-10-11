@@ -39,7 +39,7 @@ export class ConundrumBoard extends HTMLElement {
                 <button class="button is-rounded is-small" value="clear">Clear Board</button>
                 <div>
                     <button class="button is-rounded is-small" value="new">New Conundrum</button>
-                    <button class="button is-rounded is-small" value="reveal">Reveal</button>
+                    ${this.app.game?.boardConundrum ? `<button class="button is-rounded is-small" value="reveal">Reveal</button>` : ``}
                 </div>
             </div>
             <div class="board-selection">
